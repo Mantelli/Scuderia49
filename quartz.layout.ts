@@ -22,7 +22,16 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.ArticleTitle(),
     Component.ContentMeta(),
-    Component.TagList(),
+    Component.ConditionalRender({
+      component: Component.RecentNotes({
+        title: "🏁 Últimos Dossiês na Pista",
+        limit: 5,
+        showTags: false,
+        // O Filtro Profissional: Só entra na lista se tiver a tag 'post' no YAML
+        filter: (f) => f.frontmatter?.tags?.includes("post") === true,
+      }),
+      condition: (page) => page.fileData.slug === "index",
+    }),
   ],
   left: [
     Component.PageTitle(),

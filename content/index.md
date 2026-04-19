@@ -14,4 +14,5 @@ A Scuderia 49 é uma revista digital, uma garagem de portas abertas e, acima de 
 
 Se você também sente um arrepio na espinha com o ronco de um V12 ou passa horas admirando as linhas de um clássico, pode entrar. Puxe uma cadeira, pegue um café. Você está em casa.
 
+
 - Ramon Mantelli, Fundador e Piloto de Testes.

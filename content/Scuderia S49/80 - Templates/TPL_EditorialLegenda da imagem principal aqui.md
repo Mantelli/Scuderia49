@@ -13,7 +13,7 @@ image: "" # URL da imagem de destaque
 > Escreva aqui o resumo da ópera. Aquele parágrafo curto que aparece antes do "leia mais". Precisa ser instigante.
 
 ---
-
+.sluc
 ## 🏎️ A Largada
 <% tp.file.cursor() %>
 *(Comece aqui a história. Descreva o cenário, o cheiro da gasolina, o barulho do motor ou o contexto histórico. O objetivo aqui é prender o leitor pelo sentimento.)*
@@ -32,4 +32,4 @@ image: "" # URL da imagem de destaque
 *(A conclusão. Onde você amarra os pontos e deixa uma reflexão para o leitor. Não é um resumo técnico, é o encerramento da experiência.)*
 
 ---
-**Escrito por Ramon Mantelli** *Fundador da Scuderia 49 — A alma das máquinas, documentada em pixels.*
+**Escrito por Mantelli** *Fundador da Scuderia 49 — A alma das máquinas, documentada em pixels.*
