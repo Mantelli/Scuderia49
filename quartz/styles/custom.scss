@@ -19,30 +19,50 @@ h1 {
 footer p {
   display: none;
 }
-// Esse bloco vai forçar a barra no mobile
+/* --- Ajuste Mobile Scuderia 49 - Stage 4 --- */
 @media all and (max-width: 700px) {
-  /* Alvo: O container do título do site */
-  .page-title {
-    font-size: 1.3rem !important; /* Diminui o tamanho para não ocupar a linha toda */
-    text-align: center;
-    margin: 0 auto;
-    display: block;
-    width: 100%;
-    white-space: nowrap; /* Evita que o nome quebre em duas linhas se não quiser */
-  }
-
-  /* Garante que o link dentro do título se comporte bem */
-  .page-title a {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis; /* Se o nome for maior que a tela, ele coloca "..." */
-  }
-
-  /* Se o header estiver usando flexbox, force os elementos a se organizarem */
+  // 1. O container principal do topo
   header {
-    display: flex;
-    flex-direction: column; /* Coloca o título em cima e os ícones embaixo, ou vice-versa */
-    align-items: center;
-    gap: 0.5rem;
+    display: flex !important;
+    flex-direction: column !important; // Empilha: Título em cima, Ícones embaixo
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+    gap: 1rem !important;
+  }
+
+  // 2. O Link "Scuderia 49"
+  .page-title {
+    font-size: 1.8rem !important; // Tamanho de respeito, mas que cabe
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    width: 100% !important;
+    
+    a {
+      display: inline-block !important;
+      word-break: break-word !important;
+    }
+  }
+
+  // 3. Os Ícones (Busca, Dark Mode, etc)
+  // No Quartz eles geralmente ficam em uma div chamada 'search' ou similar
+  .header.search {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+  }
+
+  // 4. Limpeza de Área (Remove o que esmaga o texto no S24)
+  .left.sidebar, .right.sidebar {
+    display: none !important;
+  }
+
+  // 5. Padding do conteúdo para não encostar no vidro do celular
+  .center, .page {
+    padding: 0 1.5rem !important;
+    margin-top: 1rem !important;
   }
 }
