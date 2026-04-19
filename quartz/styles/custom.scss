@@ -19,23 +19,35 @@ h1 {
 footer p {
   display: none;
 }
-// Ajustes para Celular (Telas menores que 700px)
+// Esse bloco vai forçar a barra no mobile
 @media all and (max-width: 700px) {
+  // 1. Reduz o título principal que está gigante no print
   .page-title {
-    font-size: 1.8rem !important; // Diminui o título principal
-    margin-top: 1rem;
+    font-size: 1.5rem !important; 
+    text-align: center;
+    padding: 0 1rem;
   }
 
-  h1 {
-    font-size: 1.5rem !important; // Ajusta os títulos dos posts
+  // 2. Ajusta o cabeçalho para não empurrar o conteúdo
+  header {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
   }
 
-  .recent-notes {
-    padding: 0 10px; // Dá um respiro nas laterais
+  // 3. Garante que o texto não cole nas bordas da tela
+  .center, .page {
+    padding: 0 1.5rem !important;
+    width: 100% !important;
   }
-  
-  // Esconde elementos que poluem o mobile se precisar
-  .sidebar.left, .sidebar.right {
-    display: none; 
+
+  // 4. Esconde as barras laterais (Explorer e Graph) que espremem o post no celular
+  .left.sidebar, .right.sidebar {
+    display: none !important;
+  }
+
+  // 5. Ajusta o tamanho das imagens para não estourarem a largura
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
