@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
+    pageTitle: "Scuderia 49",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -23,32 +23,32 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        header: "Schibsted Grotesk", // Moderna e técnica
+        body: "Charter", // Serifada: fundamental para leitura longa (long-form)
+        code: "Fira Code",
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#fff23688",
+          light: "#fafafa", // Fundo limpo (papel)
+          lightgray: "#e5e5e5", // Bordas e divisórias
+          gray: "#b8b8b8", // Texto secundário
+          darkgray: "#2d2d2d", // Texto principal (leitura confortável)
+          dark: "#1a1a1a", // Títulos
+          secondary: "#c53030", // Vermelho Scuderia (Links e botões)
+          tertiary: "#5a6e69", // Racing Green discreto para detalhes
+          highlight: "rgba(197, 48, 48, 0.07)", // Destaque de seleção
+          textHighlight: "#c5303033",
         },
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
+          light: "#121212",         // Cinza asfalto profundo
+          lightgray: "#2a2a2a",
           gray: "#646464",
           darkgray: "#d4d4d4",
           dark: "#ebebec",
-          secondary: "#7b97aa",
+          secondary: "#ff4d4d",     // Vermelho vibrante no escuro
           tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#b3aa0288",
+          highlight: "rgba(255, 77, 77, 0.15)",
+          textHighlight: "#c5303033",
         },
       },
     },

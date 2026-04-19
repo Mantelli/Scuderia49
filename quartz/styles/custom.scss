@@ -1,3 +1,21 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+// Tira a cara de "página de ajuda" e centraliza o foco
+.center {
+  grid-column: 2 / 3; // Garante que o texto ocupe o centro
+  max-width: 800px;   // Largura ideal para leitura
+}
+
+// Estiliza o título para parecer manchete
+h1 {
+   font-family: var(--headerFont);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 3px solid var(--secondary); // Linha vermelha de destaque
+  display: inline-block;
+}
+
+footer p {
+  display: none;
+}
