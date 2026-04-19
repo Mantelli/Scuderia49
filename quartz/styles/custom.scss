@@ -19,3 +19,23 @@ h1 {
 footer p {
   display: none;
 }
+// Ajustes para Celular (Telas menores que 700px)
+@media all and (max-width: 700px) {
+  .page-title {
+    font-size: 1.8rem !important; // Diminui o título principal
+    margin-top: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem !important; // Ajusta os títulos dos posts
+  }
+
+  .recent-notes {
+    padding: 0 10px; // Dá um respiro nas laterais
+  }
+  
+  // Esconde elementos que poluem o mobile se precisar
+  .sidebar.left, .sidebar.right {
+    display: none; 
+  }
+}
