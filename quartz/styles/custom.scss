@@ -21,33 +21,27 @@ footer p {
 }
 // Esse bloco vai forçar a barra no mobile
 @media all and (max-width: 700px) {
-  // 1. Reduz o título principal que está gigante no print
+  /* Alvo: O container do título do site */
   .page-title {
-    font-size: 1.5rem !important; 
+    font-size: 1.3rem !important; /* Diminui o tamanho para não ocupar a linha toda */
     text-align: center;
-    padding: 0 1rem;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    white-space: nowrap; /* Evita que o nome quebre em duas linhas se não quiser */
   }
 
-  // 2. Ajusta o cabeçalho para não empurrar o conteúdo
+  /* Garante que o link dentro do título se comporte bem */
+  .page-title a {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Se o nome for maior que a tela, ele coloca "..." */
+  }
+
+  /* Se o header estiver usando flexbox, force os elementos a se organizarem */
   header {
-    margin-top: 1rem !important;
-    margin-bottom: 1rem !important;
+    display: flex;
+    flex-direction: column; /* Coloca o título em cima e os ícones embaixo, ou vice-versa */
+    align-items: center;
+    gap: 0.5rem;
   }
-
-  // 3. Garante que o texto não cole nas bordas da tela
-  .center, .page {
-    padding: 0 1.5rem !important;
-    width: 100% !important;
-  }
-
-  // 4. Esconde as barras laterais (Explorer e Graph) que espremem o post no celular
-  .left.sidebar, .right.sidebar {
-    display: none !important;
-  }
-
-  // 5. Ajusta o tamanho das imagens para não estourarem a largura
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-}
