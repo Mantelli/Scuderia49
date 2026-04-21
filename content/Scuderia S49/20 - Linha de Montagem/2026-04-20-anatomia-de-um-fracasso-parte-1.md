@@ -1,8 +1,26 @@
+---
+title: 2026-04-20-anatomia-de-um-fracasso-parte-1
+slug: post
+date: 2026-04-21
+tags:
+  - editorial
+  - cultura-automotiva
+  - post
+status: Postado
+image: ""
+---
+
+# 2026-04-20-anatomia-de-um-fracasso-parte-1
+
+> [!ABSTRACT] O Lead
+> Em um mundo infestado de SUVs de shopping, a _Station Wagon_ é a resistência. É o carro de quem gosta de dirigir, de quem valoriza o centro de gravidade baixo e a silhueta longa.
+
+---
 Anatomia de um Fracasso: Por que a Megane S49 morreu?
 
-"Em um mundo infestado de SUVs de shopping, a _Station Wagon_ é a resistência. É o carro de quem gosta de dirigir, de quem valoriza o centro de gravidade baixo e a silhueta longa."
-
 Bom, como toda história precisamos começar do começo, porque raios alguém escolheria uma Renault Megane Grand Tour 2011 como carro da família?
+
+## 
 Eu respondo, porquê eu sempre quis ter uma perua, a Megane é um carro que mesmo 16 anos depois de seu lançamento oficial, continua sendo um carro bonito e com desenho atual, muito bem equipado, seguro e confiável, sim, confiável, ou você já viu alguém falando mal de um Clio 1.6 16v manual?
 Claro, todo carro tem seus prós e contras, no mundo das peruas eu não conheço outra que tenha mais contras do que uma Megane, desde que você não saiba aonde está se metendo, e bem, eu pensei que soubesse...
 Voltando um pouco no tempo, antes da Megane eu tinha um Chevrolet Cruze 1.8 Automático, era um bom carro, mas quase me levou à falência, tanto na oficina quanto no posto, cada vez que eu parava ele na frente da bomba o frentista sorria e eu chorava, mas confesso que eu gostava dele, foi um bom carro, o primeiro carro que eu não dei um nome. Nessa época, minha ex esposa e eu, decidimos comprar um apartamento, como todo mundo precisa fazer um sacrifício o meu foi vender o carro, e lá se foi o Ramon procurar outro carro, mas dessa vez um que fizesse dar aquela olhadinha quando estaciona ele, sabe?
@@ -11,7 +29,12 @@ Negociei o carro por uns dois dias, chamei meu amigo Raul (que tão doido quanto
 A primeira manutenção foi a troca das velas, comprei um jogo original Renault (muito barato por sinal), peguei as chaves emprestadas com o meu primo (vocês vão ouvir falar mais dele nessa história), estacionei ela na vaga do apartamento que estávamos alugando e fiz a troca, sem saber de troque, gap de vela, nem nada, tirei uma e coloquei a outra.
 Depois o desafio de verdade começou, eu precisava trocar os quatro discos de freio e as pastilhas, passei semanas pesquisando as peças na internet, ligando em auto peças da cidade, olhando os códigos OEM no site da Renault, e comprei tudo  (ou achava que tinha hahaha).
 Pra começar os discos dianteiros que eu tinha comprado nunca chegaram, tive comprar outro par aqui na cidade e pagar mais caro por eles, as pastilhas chegaram, comprei tudo de cerâmica, Bosch, marca boa... Chamei o Jonatan (o primo q eu mencionei antes), levei o carro para a casa dos meus pais, afinal tem garagem e mais espaço, peguei uns cavaletes e um macaco jacaré com o Raul (olha ele ai de novo hahaha), um belo sábado pela manhã, começamos o serviço, pra começo de conversa as pastilhas que eu comprei pra dianteira além de não serem de cerâmica como o prometido, não encaixavam nas pinças, deixamos de lado e partimos pros freios traseiros. Eu não sei se algum dia vocês já tentaram trocar as pastilhas e freios traseiros de uma Megane, mas se não o fizeram, não façam, levem pro mecânico de confiança.
-Aqui entra um pouquinho de explicação técnica:
+
+> [!TIP] Nota do Autor
 O freio traseiro da Megane usa um sistema de êmbolo em forma de parafuso, ou seja, pra encolher ele não é só empurrar como o dianteiro, vc precisa empurrar e girar ao mesmo tempo, exite uma ferramenta específica pra isso, mas é claro que não tínhamos ela.
 Sofremos mais que mãe de ouriço mas conseguimos fazer a troca.
+
 Ali, suado, com as mãos pretas de graxa e pastilha velha, tentando girar um êmbolo que parecia soldado no lugar, eu percebi que a Bernardete não seria apenas um carro de família. Ela seria a minha escola. Eu ainda não sabia, mas ali, entre um xingamento e uma martelada, a Scuderia 49 estava começando a ganhar forma. Mas o plano de 'carro confiável' estava prestes a subir de nível... para algo muito mais barulhento e perigoso.
+
+---
+**Escrito por Mantelli** *Fundador da Scuderia 49 — A alma das máquinas, documentada em pixels.*
