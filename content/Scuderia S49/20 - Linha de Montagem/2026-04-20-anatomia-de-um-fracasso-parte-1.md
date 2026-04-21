@@ -1,6 +1,6 @@
 ---
-title: 2026-04-20-anatomia-de-um-fracasso-parte-1
-slug:
+title: "Anatomia de um Fracasso: Parte 1"
+slug: anatomia-de-um-fracasso-parte-1
 date: 2026-04-21
 tags:
   - editorial
