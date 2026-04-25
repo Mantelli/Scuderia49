@@ -1,0 +1,1 @@
+Aqui o "combo do play boy", TKR "Cara preta" e um Tojo GR300 no painel de um fusquinha.
