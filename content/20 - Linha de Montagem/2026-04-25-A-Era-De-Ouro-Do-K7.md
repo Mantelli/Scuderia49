@@ -35,7 +35,6 @@ Se existisse um "Santo Graal" do som automotivo, ele teria a sigla **NAAC** (_Na
 O TD-1200 era um robô. Ele tinha um microprocessador que lia a fase do som em tempo real e, através de um servomotor microscópico, movia fisicamente o cabeçote até atingir os $90^\circ$ perfeitos. Era engenharia de precisão suíça feita por mãos japonesas para ser instalada num console de plástico.
 
 ![[Nakamichi TD-1200.jpg]]
-![[Nakamichi TD-1200]]
 ### A Resistência Brasileira: TKR "Cara Preta" e o Trono do Tojo
 
 No Brasil da reserva de mercado e inflação galopante, o sonho do Nakamichi era inalcançável. O trono das nossas ruas foi ocupado pelo **TKR "Cara Preta" (CRF-150M)**.
@@ -43,8 +42,8 @@ No Brasil da reserva de mercado e inflação galopante, o sonho do Nakamichi era
 O Cara Preta era o motor AP dos rádios: não era o mais sofisticado, mas era indestrutível. Diferente dos botões "toque de pluma" dos importados, o TKR exigia um soco. Você enfiava a fita na fenda e ouvia um "CLACK" metálico que parecia o engatilhamento de um fuzil. Ele não lia a fita; ele a dominava.
 
 E o sistema só era completo com o **Equalizador Tojo (GR-300)**. Fabricado em Manaus, o Tojo trazia os famosos "100W" (que na verdade eram pífios Watts RMS em CIs TDA2003). Mas quem se importava? O que importava era ver os LEDs vermelhos piscando no ritmo do bumbo e ter o poder de ser o "maestro do asfalto", deslizando os faders para compensar a acústica de um Opala ou de um Fusca.
+
 ![[TKR-Cara-Preta-Tojo.jpg]]
-![[TKR "Cara Preta" + Tojo GR300]]
 
 ### O Abismo Atual: O Carro como Babá Eletrônica
 
