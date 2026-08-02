@@ -1,5 +1,5 @@
 ---
-title: O_QUE_ACONTECEU_COM_OS_MOTORISTAS
+title: O que aconteceu com os motoristas
 slug:
 date: 2026-08-02
 tags:
@@ -8,8 +8,7 @@ tags:
 status: rascunho
 image: ""
 ---
-
-# O_QUE_ACONTECEU_COM_OS_MOTORISTAS
+# O que aconteceu com os motoristas 
 
 > [!ABSTRACT] O Lead
 > O motorista moderno trocou a engenharia, a dinâmica de chassi e o prazer de dirigir por telas brilhantes e caixas de sapato levantadas. Como a indústria nos convenceu a pagar uma fortuna por carros cada vez piores?

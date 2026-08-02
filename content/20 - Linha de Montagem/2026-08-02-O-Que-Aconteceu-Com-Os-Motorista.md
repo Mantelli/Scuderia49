@@ -1,5 +1,5 @@
 ---
-title: O_QUE_ACONTECEU_COM_OS_MOTORISTAS
+title: O que aconteceu com os motoristas
 slug:
 date: 2026-08-02
 tags:
@@ -8,16 +8,12 @@ tags:
 status: rascunho
 image: ""
 ---
-
-# O_QUE_ACONTECEU_COM_OS_MOTORISTAS
+# O que aconteceu com os motoristas 
 
 > [!ABSTRACT] O Lead
 > O motorista moderno trocou a engenharia, a dinâmica de chassi e o prazer de dirigir por telas brilhantes e caixas de sapato levantadas. Como a indústria nos convenceu a pagar uma fortuna por carros cada vez piores?
 
 ---
-
-## 🏎️ A Largada
-
 Eu não sei quanto a vocês, mas eu me vejo como um gearhead "raiz". Eu gosto de praticamente todo tipo de carro, e consigo me divertir tanto na tocada de um projeto turbo de 400 cv quanto na simplicidade honesta de um Renault Logan 1.0 surrado. Mas a questão que eu quero colocar na mesa hoje passa longe de purismo ou potência. 
 
 Eu quero tentar entender o que raios aconteceu com os motoristas de hoje. O que levou as pessoas a se contentarem com pseudo-SUVs e com veículos cada dia mais empobrecidos, genéricos e absurdamente caros?
