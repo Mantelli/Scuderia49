@@ -5,7 +5,8 @@ date: 2026-08-02
 tags:
   - editorial
   - cultura-automotiva
-status: rascunho
+  - post
+status: Postado
 image: ""
 ---
 # O que aconteceu com os motoristas 

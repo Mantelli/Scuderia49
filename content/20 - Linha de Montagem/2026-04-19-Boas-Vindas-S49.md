@@ -6,7 +6,7 @@ tags:
   - editorial
   - cultura-automotiva
   - post
-status: rascunho
+status: Postado
 image: ""
 ---
 
