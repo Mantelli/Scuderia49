@@ -17,20 +17,16 @@ const posts = defineCollection({
         .toLowerCase()
     },
   }),
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      date: z.coerce.date(),
-      tags: z.array(z.string()).default([]),
-      status: z.string().optional(),
-      description: z.string().optional(),
-      // aceita vazio (""), caminho relativo ao post ou URL
-      image: z
-        .union([image(), z.string()])
-        .optional()
-        .transform((v) => (v === "" ? undefined : v)),
-      imageAlt: z.string().optional(),
-    }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    tags: z.array(z.string()).nullish().transform((t) => t ?? []),
+    status: z.string().nullish(),
+    description: z.string().nullish(),
+    // capa: "[[foto.jpg]]", "foto.jpg" ou caminho — procurada nas imagens do cofre
+    image: z.string().nullish(),
+    imageAlt: z.string().nullish(),
+  }),
 })
 
 export const collections = { posts }

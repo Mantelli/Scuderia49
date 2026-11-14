@@ -1,6 +1,34 @@
 import { getCollection, type CollectionEntry } from "astro:content"
+import type { ImageMetadata } from "astro"
 
 export type Post = CollectionEntry<"posts">
+
+// Todas as imagens do cofre, indexadas pelo nome do arquivo (como o Obsidian faz)
+const vaultImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/content/**/*.{png,jpg,jpeg,webp,avif,gif,PNG,JPG,JPEG,WEBP}",
+  { eager: true },
+)
+const imagesByName = new Map(
+  Object.entries(vaultImages).map(([p, mod]) => [p.split("/").pop()!.toLowerCase(), mod.default]),
+)
+
+/** Capa do post a partir do campo `image` ("[[foto.jpg]]", "foto.jpg" ou caminho). */
+export function cover(post: Post): ImageMetadata | undefined {
+  const raw = post.data.image?.trim()
+  if (!raw) return undefined
+  const name = raw
+    .replace(/^!?\[\[|\]\]$/g, "")
+    .split("|")[0]
+    .split("/")
+    .pop()!
+    .trim()
+    .toLowerCase()
+  return imagesByName.get(name)
+}
+
+/** Formato do post: "pit-stop" (nota rápida) ou dossiê. */
+export const isPitStop = (post: Post) => post.data.tags.includes("pit-stop")
+export const kicker = (post: Post, number: string) => (isPitStop(post) ? `Pit Stop Nº ${number}` : `Dossiê Nº ${number}`)
 
 const DRAFT = /^(rascunho|draft)$/i
 
@@ -22,7 +50,7 @@ export function dossieNumber(post: Post, posts: Post[]): string {
 /** Texto do callout "[!ABSTRACT]" (o Lead), usado como resumo e meta description. */
 export function lead(post: Post): string {
   if (post.data.description) return post.data.description
-  const body = post.body ?? ""
+  const body = (post.body ?? "").replace(/%%[\s\S]*?%%/g, "")
   const m = body.match(/^>\s*\[!(?:abstract|summary)\][^\n]*\n((?:>[^\n]*\n?)+)/im)
   const text = m
     ? m[1].replace(/^>\s?/gm, " ")

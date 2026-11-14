@@ -1,6 +1,6 @@
 ---
 import { render } from "astro:content"
-import { getImage } from "astro:assets"
+import { getImage, Image } from "astro:assets"
 import Base from "../../layouts/Base.astro"
 import {
   getPosts,
@@ -10,6 +10,8 @@ import {
   readingTime,
   visibleTags,
   tagLabel,
+  cover,
+  kicker,
   type Post,
 } from "../../lib/posts"
 
@@ -29,13 +31,14 @@ interface Props {
 }
 const { post, posts, newer, older } = Astro.props
 const { Content } = await render(post)
-const { title, date, image } = post.data
+const { title, date, imageAlt } = post.data
+const image = cover(post)
 const number = dossieNumber(post, posts)
 const description = lead(post)
 const tags = visibleTags(post)
 
 const ogImage =
-  image && typeof image !== "string" ? (await getImage({ src: image, width: 1200, format: "jpg" })).src : undefined
+  image ? (await getImage({ src: image, width: 1200, format: "jpg" })).src : undefined
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -61,7 +64,7 @@ const jsonLd = {
         <span class="roundel" aria-hidden="true">{number}</span>
       </div>
       <p class="label kicker">
-        Dossiê Nº {number}
+        {kicker(post, number)}
         {tags[0] && <span> · {tagLabel(tags[0])}</span>}
       </p>
       <h1 class="post-title">{title}</h1>
@@ -71,6 +74,15 @@ const jsonLd = {
       </p>
       <div class="stripes thin"></div>
     </header>
+
+    {
+      image && (
+        <figure class="post-cover wrap">
+          <Image src={image} alt={imageAlt ?? ""} widths={[640, 1024, 1600]} sizes="(max-width: 64rem) 100vw, 64rem" loading="eager" />
+          {imageAlt && <figcaption class="label">{imageAlt}</figcaption>}
+        </figure>
+      )
+    }
 
     <div class="wrap">
       <div class="prose">
@@ -165,6 +177,26 @@ const jsonLd = {
   .post-header .stripes {
     max-width: 12rem;
     margin-inline: auto;
+  }
+
+  .post-cover {
+    max-width: 64rem;
+    margin: -0.5rem auto 3rem;
+  }
+  .post-cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 36rem;
+    object-fit: cover;
+    border: 1.5px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--rule);
+    filter: sepia(0.12) contrast(1.02);
+  }
+  .post-cover figcaption {
+    margin-top: 0.9rem;
+    text-align: center;
+    font-size: 0.7rem;
   }
 
   .post-footer {

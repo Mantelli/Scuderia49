@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets"
-import { lead, formatDate, readingTime, visibleTags, tagLabel, type Post } from "../lib/posts"
+import { lead, formatDate, readingTime, visibleTags, tagLabel, cover, kicker, type Post } from "../lib/posts"
 
 interface Props {
   post: Post
@@ -8,14 +8,15 @@ interface Props {
   featured?: boolean
 }
 const { post, number, featured = false } = Astro.props
-const { title, date, image, imageAlt } = post.data
+const { title, date, imageAlt } = post.data
+const image = cover(post)
 const href = `/posts/${post.id}`
 const Heading = featured ? "h2" : "h3"
 ---
 
 <article class:list={["card", { featured }]}>
   {
-    image && typeof image !== "string" && (
+    image && (
       <a href={href} class="card-photo" tabindex="-1" aria-hidden="true">
         <Image src={image} alt={imageAlt ?? ""} widths={[480, 960]} sizes="(max-width: 48rem) 100vw, 50vw" />
       </a>
@@ -24,7 +25,7 @@ const Heading = featured ? "h2" : "h3"
   <div class="card-head">
     <span class="roundel" aria-hidden="true">{number}</span>
     <div>
-      <p class="label kicker">Dossiê Nº {number}</p>
+      <p class="label kicker">{kicker(post, number)}</p>
       <p class="label meta">
         <time datetime={date.toISOString()}>{formatDate(date)}</time> · {readingTime(post)} min de leitura
       </p>

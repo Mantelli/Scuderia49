@@ -1,6 +1,7 @@
 // Traduz a sintaxe do Obsidian usada nos posts para Markdown/HTML comum:
 //   > [!TIPO] Título   → <aside class="callout callout-tipo">
 //   ![[imagem.jpg]]     → imagem otimizada pelo Astro (procurada em content/)
+//   %% comentário %%    → removido (anotações do autor nunca vão ao ar)
 import fs from "node:fs"
 import path from "node:path"
 import { visit } from "unist-util-visit"
@@ -32,11 +33,44 @@ const CALLOUT_LABELS = {
 const EMBED_RE = /!\[\[([^\]|]+)(?:\|([^\]]*))?\]\]/g
 const IMAGE_EXT = /\.(png|jpe?g|webp|gif|avif|svg)$/i
 
+/** Remove trechos entre %% ... %% (podem atravessar vários parágrafos). */
+function stripComments(tree) {
+  let inComment = false
+  visit(tree, "text", (node) => {
+    if (!inComment && !node.value.includes("%%")) return
+    const parts = node.value.split("%%")
+    let kept = ""
+    parts.forEach((part, i) => {
+      if (i > 0) inComment = !inComment
+      if (!inComment) kept += part
+    })
+    node.value = kept
+  })
+  if (inComment) console.warn("[remark-obsidian] comentário %% sem fechamento")
+  pruneEmpty(tree)
+}
+
+const PRUNABLE = new Set(["paragraph", "heading", "emphasis", "strong", "delete", "listItem", "list", "blockquote", "link"])
+function isEmpty(node) {
+  if (node.type === "text") return !node.value.trim()
+  if (node.type === "break") return true
+  if (!PRUNABLE.has(node.type)) return false
+  return !node.children?.length || node.children.every(isEmpty)
+}
+function pruneEmpty(node) {
+  if (!node.children) return
+  node.children.forEach(pruneEmpty)
+  node.children = node.children.filter((c) => !(PRUNABLE.has(c.type) && isEmpty(c)))
+}
+
 export function remarkObsidian() {
   let files
   return (tree, file) => {
     files ??= indexFiles(CONTENT_DIR)
     const fromDir = path.dirname(file.path ?? path.join(CONTENT_DIR, "x.md"))
+
+    // 0) Comentários do Obsidian
+    stripComments(tree)
 
     // 1) Embeds de imagem: ![[arquivo.jpg]] ou ![[arquivo.jpg|legenda]]
     visit(tree, "text", (node, index, parent) => {
@@ -64,7 +98,7 @@ export function remarkObsidian() {
     })
 
     // 2) Callouts: > [!TIPO] Título opcional
-    visit(tree, "blockquote", (node) => {
+    visit(tree, "blockquote", (node, index, parent) => {
       const first = node.children[0]
       const head = first?.type === "paragraph" ? first.children[0] : null
       if (head?.type !== "text") return
@@ -73,10 +107,16 @@ export function remarkObsidian() {
       const kind = m[1].toLowerCase()
       const title = m[2].trim() || CALLOUT_LABELS[kind] || m[1]
       head.value = head.value.slice(m[0].length)
-      if (!head.value) first.children.shift()
+      if (!head.value.trim()) first.children.shift()
       // remove a quebra de linha que sobra no início do parágrafo
       if (first.children[0]?.type === "break") first.children.shift()
-      if (!first.children.length) node.children.shift()
+      if (!first.children.length || first.children.every(isEmpty)) node.children.shift()
+
+      // callout sem conteúdo (ex.: só tinha comentário %%) não vai ao ar
+      if (!node.children.length && parent && index != null) {
+        parent.children.splice(index, 1)
+        return index
+      }
 
       node.data = {
         hName: "aside",
