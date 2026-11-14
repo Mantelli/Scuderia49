@@ -5,3 +5,10 @@ dist
 .obsidian
 private/
 .env
+
+# Syncthing / Obsidian
+.stfolder/
+.stversions/
+.syncthing.*
+~syncthing~*
+*.sync-conflict-*
