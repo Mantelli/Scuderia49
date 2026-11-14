@@ -18,13 +18,13 @@ Anatomia de um Fracasso: Por que a Megane S49 morreu?
 
 Bom, como toda história precisamos começar do começo, porque raios alguém escolheria uma Renault Megane Grand Tour 2011 como carro da família?
 
-#**O Começo do Erro**# 
+## O Começo do Erro
 
 Eu respondo, porquê eu sempre quis ter uma perua, a Megane é um carro que mesmo 16 anos depois de seu lançamento oficial, continua sendo um carro bonito e com desenho atual, muito bem equipado, seguro e confiável, sim, confiável, ou você já viu alguém falando mal de um Clio 1.6 16v manual?
 
 Claro, no mundo das _wagons_, não conheço outra com mais "detalhes" do que a Megane. Se você não souber onde está se metendo, ela te morde. E eu, na minha arrogância técnica, achei que sabia...
 
-#**A Troca Estratégica**#
+## A Troca Estratégica
 
 Antes da Bernardete, eu acelerava um Chevrolet Cruze 1.8 Automático. Era um bom carro, mas estava me levando à falência. No posto, o frentista sorria e eu chorava; na oficina, o orçamento era sempre em "barões". Quando decidi que era hora de investir em um imóvel e reorganizar a vida, o sacrifício foi inevitável: vendi o Cruze.
 
@@ -32,13 +32,13 @@ Mas eu precisava de algo que me fizesse olhar para trás ao estacionar. O alvo f
 
 E aí surgiu a **Bernardete**. O nome veio de uma mistura de nostalgia por peruas antigas (como as velhas Variants que víamos nas ruas de Chapecó) e o timing perfeito de uma maratona de _The Big Bang Theory_.
 
-#**A Realidade Bate à Porta (e no Bolso)**#
+## A Realidade Bate à Porta (e no Bolso)
 
 Negociei por dois dias, chamei meu amigo Raul — tão entusiasta (ou louco) quanto eu — e subimos para o Paraná. O vendedor jurou: "carro a toda prova, não existe mais inteira". Papo de vendedor. Na primeira visita ao Rudi, o mecânico de confiança, o orçamento deu um soco no estômago: **R$ 7 mil**.
 
 Quase tive um treco. Mas ali, em vez de desistir, eu assumi a bucha. Decidi que eu seria o mecânico. A primeira vitória foi a troca das velas. Coisa simples: velas originais Renault (baratas, diga-se de passagem), ferramentas emprestadas do meu primo Jonatan e o sol de sábado na vaga da garagem. Tirei uma, coloquei a outra. O efeito Dunning-Kruger estava no auge; eu me sentia o próprio engenheiro da Alpine.
 
-#**O Batismo de Graxa**#
+## O Batismo de Graxa
 
 O desafio subiu de nível: quatro discos e pastilhas. Semanas de pesquisa, códigos OEM, caça ao tesouro na internet. Comprei tudo de cerâmica, Bosch... ou achei que tinha comprado. Os discos dianteiros extraviaram e tive que morrer num par superfaturado aqui na cidade. As pastilhas "de cerâmica" que chegaram não serviam na pinça.
 
