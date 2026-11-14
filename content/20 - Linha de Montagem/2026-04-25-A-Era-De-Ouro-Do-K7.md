@@ -10,8 +10,6 @@ status: Postado
 image: ""
 ---
 
-# A Era de Ouro do K7: Engenharia, Alta Fidelidade e a Sociologia do Som sobre Rodas
-
 > [!ABSTRACT] O Lead
 > Esqueça o Bluetooth e a compressão sem alma do streaming. Houve um tempo em que ouvir música a 120 km/h era um ato de guerra contra a física. O interior de um carro é um ambiente hostil: vibração, calor senegalês e interferência eletromagnética. Para um audiófilo dos anos 80, o toca-fitas não era apenas um acessório; era um milagre de engenharia eletromecânica.
 

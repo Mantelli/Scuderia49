@@ -15,9 +15,21 @@ const config: QuartzConfig = {
     analytics: {
       provider: "plausible",
     },
-    locale: "en-US",
+    locale: "pt-BR",
     baseUrl: "scuderia49.com.br",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: [
+      "private",
+      "templates",
+      ".obsidian",
+      // Não publicar: rascunhos pessoais, modelos e resíduos do Syncthing/Obsidian
+      "markor",
+      "80 - Templates",
+      "Clip Studio",
+      ".trash",
+      ".stversions",
+      ".stfolder",
+      "**/*.sync-conflict-*",
+    ],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",

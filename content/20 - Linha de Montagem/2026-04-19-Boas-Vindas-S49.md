@@ -10,8 +10,6 @@ status: Postado
 image: ""
 ---
 
-# Boas-Vindas à Scuderia 49
-
 > [!ABSTRACT] 
 > Existe um silêncio estranho nas concessionárias de hoje. Tudo é muito limpo, muito plástico, muito... sem alma. A Scuderia 49 nasceu no barulho de uma catraca e no cheiro de gasolina velha.
 

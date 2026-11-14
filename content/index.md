@@ -5,8 +5,8 @@ cssclasses:
 ---
 
 <div class="hero-scuderia">
-  <h1>Scuderia 49</h1>
-  <p>A Garagem Onde as Máquinas Têm Alma.</p>
+  <p class="hero-titulo">Scuderia 49</p>
+  <p class="hero-slogan">A Garagem Onde as Máquinas Têm Alma.</p>
 </div>
 
 <div class="arquivo-link">

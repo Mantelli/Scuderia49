@@ -9,8 +9,6 @@ tags:
 status: Postado
 image: ""
 ---
-# O que aconteceu com os motoristas 
-
 > [!ABSTRACT] O Lead
 > O motorista moderno trocou a engenharia, a dinâmica de chassi e o prazer de dirigir por telas brilhantes e caixas de sapato levantadas. Como a indústria nos convenceu a pagar uma fortuna por carros cada vez piores?
 

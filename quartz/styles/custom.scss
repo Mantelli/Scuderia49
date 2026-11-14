@@ -1,68 +1,112 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
 // put your custom CSS here!
 // Tira a cara de "página de ajuda" e centraliza o foco
 .center {
-  grid-column: 2 / 3; // Garante que o texto ocupe o centro
-  max-width: 800px;   // Largura ideal para leitura
+  max-width: 800px; // Largura ideal para leitura
+
+  // Garante que o texto ocupe o centro (no mobile o grid tem uma coluna só)
+  @media all and not ($mobile) {
+    grid-column: 2 / 3;
+  }
 }
 
 // Estiliza o título para parecer manchete
 h1 {
-   font-family: var(--headerFont);
+  font-family: var(--headerFont);
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   border-bottom: 3px solid var(--secondary); // Linha vermelha de destaque
   display: inline-block;
 }
 
-footer p {
-  display: none;
-}
-/* --- Ajuste Mobile Scuderia 49 - Stage 4 --- */
-@media all and (max-width: 700px) {
-  // 1. O container principal do topo
-  header {
-    display: flex !important;
-    flex-direction: column !important; // Empilha: Título em cima, Ícones embaixo
-    align-items: center !important;
-    justify-content: center !important;
-    margin-top: 2rem !important;
-    margin-bottom: 1rem !important;
-    gap: 1rem !important;
+// --- Home: hero e chamada para a Garagem ---
+.hero-scuderia {
+  margin: 1.5rem 0 1rem;
+  padding: 2rem 1.5rem;
+  border-left: 6px solid var(--secondary);
+  background: var(--highlight);
+  border-radius: 0 8px 8px 0;
+
+  .hero-titulo {
+    margin: 0;
+    font-family: var(--headerFont);
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--dark);
   }
 
-  // 2. O Link "Scuderia 49"
-  .page-title {
-    font-size: 1.8rem !important; // Tamanho de respeito, mas que cabe
-    margin: 0 !important;
-    padding: 0 !important;
-    text-align: center !important;
-    width: 100% !important;
-    
-    a {
-      display: inline-block !important;
-      word-break: break-word !important;
+  .hero-slogan {
+    margin: 0.5rem 0 0;
+    font-family: var(--headerFont);
+    font-size: 1.15rem;
+    color: var(--darkgray);
+  }
+}
+
+.arquivo-link {
+  margin: 0 0 2rem;
+}
+
+a.btn-garagem {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  background: var(--secondary);
+  color: #fff !important;
+  font-family: var(--headerFont);
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+
+  &:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--dark);
+    outline-offset: 2px;
+  }
+}
+
+// --- Rodapé ---
+footer ul {
+  margin-top: 0.5rem;
+}
+
+// --- Ajuste Mobile Scuderia 49 - Stage 5 ---
+// A barra superior (título + modo escuro + modo leitura) continua visível;
+// só a barra direita (backlinks) sai para não esmagar o texto.
+@media all and ($mobile) {
+  .sidebar.left {
+    padding-top: 1.5rem;
+    gap: 0.75rem;
+
+    .page-title {
+      font-size: 1.6rem;
+      margin: 0;
     }
   }
 
-  // 3. Os Ícones (Busca, Dark Mode, etc)
-  // No Quartz eles geralmente ficam em uma div chamada 'search' ou similar
-  .header.search {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 1.5rem !important;
-    width: 100% !important;
+  .sidebar.right {
+    display: none;
   }
 
-  // 4. Limpeza de Área (Remove o que esmaga o texto no S24)
-  .left.sidebar, .right.sidebar {
-    display: none !important;
+  h1 {
+    font-size: 2rem;
   }
 
-  // 5. Padding do conteúdo para não encostar no vidro do celular
-  .center, .page {
-    padding: 0 1.5rem !important;
-    margin-top: 1rem !important;
+  .hero-scuderia {
+    padding: 1.5rem 1rem;
+
+    .hero-titulo {
+      font-size: 2rem;
+    }
   }
 }

@@ -7,13 +7,10 @@ status: rascunho
 image: "" # URL da imagem de destaque
 ---
 
-# <% tp.file.title %>
-
 > [!ABSTRACT] O Lead
 > Escreva aqui o resumo da ópera. Aquele parágrafo curto que aparece antes do "leia mais". Precisa ser instigante.
 
 ---
-.sluc
 ## 🏎️ A Largada
 <% tp.file.cursor() %>
 *(Comece aqui a história. Descreva o cenário, o cheiro da gasolina, o barulho do motor ou o contexto histórico. O objetivo aqui é prender o leitor pelo sentimento.)*

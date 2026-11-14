@@ -10,8 +10,6 @@ status: Postado
 image: ""
 ---
 
-# 2026-04-20-anatomia-de-um-fracasso-parte-1
-
 > [!ABSTRACT] O Lead
 > Em um mundo infestado de SUVs de shopping, a _Station Wagon_ é a resistência. É o carro de quem gosta de dirigir, de quem valoriza o centro de gravidade baixo e a silhueta longa.
 
