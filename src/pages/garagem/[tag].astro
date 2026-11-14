@@ -1,0 +1,53 @@
+---
+import Base from "../../layouts/Base.astro"
+import PageHeader from "../../components/PageHeader.astro"
+import PostCard from "../../components/PostCard.astro"
+import { getPosts, dossieNumber, visibleTags, tagLabel, type Post } from "../../lib/posts"
+
+export async function getStaticPaths() {
+  const posts = await getPosts()
+  const tags = new Set(posts.flatMap(visibleTags))
+  return [...tags].map((tag) => ({
+    params: { tag },
+    props: { tag, posts, tagged: posts.filter((p) => p.data.tags.includes(tag)) },
+  }))
+}
+
+interface Props {
+  tag: string
+  posts: Post[]
+  tagged: Post[]
+}
+const { tag, posts, tagged } = Astro.props
+const name = tagLabel(tag)
+---
+
+<Base title={`Etiqueta: ${name}`} description={`Dossiês da Scuderia 49 arquivados em “${name}”.`}>
+  <div class="wrap">
+    <PageHeader
+      kicker="Etiqueta"
+      title={name.charAt(0).toUpperCase() + name.slice(1)}
+      intro={`${tagged.length} ${tagged.length === 1 ? "dossiê" : "dossiês"} nesta vaga.`}
+    />
+    <div class="grid">
+      {tagged.map((p) => <PostCard post={p} number={dossieNumber(p, posts)} />)}
+    </div>
+    <p class="back"><a href="/garagem">← Voltar para a garagem</a></p>
+  </div>
+</Base>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+    gap: 2rem 1.75rem;
+  }
+  .back {
+    margin-top: 3rem;
+    text-align: center;
+    font-family: var(--font-label);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+</style>

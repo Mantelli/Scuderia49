@@ -1,0 +1,78 @@
+---
+import "@fontsource/dm-serif-display/400.css"
+import "@fontsource-variable/oswald"
+import "@fontsource-variable/literata"
+import "@fontsource-variable/literata/wght-italic.css"
+import "../styles/global.css"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+
+interface Props {
+  title?: string
+  description?: string
+  image?: string
+  type?: "website" | "article"
+  published?: Date
+  jsonLd?: Record<string, unknown>
+}
+
+const SITE = "Scuderia 49"
+const TAGLINE = "A Garagem Onde as Máquinas Têm Alma"
+const {
+  title,
+  description = "Cultura automotiva com paixão, opinião e cheiro de gasolina. Dossiês sobre carros, engenharia e a alma das máquinas.",
+  image = "/og-default.jpg",
+  type = "website",
+  published,
+  jsonLd,
+} = Astro.props
+
+const fullTitle = title ? `${title} · ${SITE}` : `${SITE} — ${TAGLINE}`
+// mesmo formato do sitemap e do GitHub Pages: /posts/slug/
+const canonical = new URL(Astro.url.pathname.replace(/\/?$/, "/"), Astro.site)
+const ogImage = new URL(image, Astro.site)
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="alternate" type="application/rss+xml" title={SITE} href="/rss.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#a8262c" />
+
+    <meta property="og:site_name" content={SITE} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title ?? SITE} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    {published && <meta property="article:published_time" content={published.toISOString()} />}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+
+    <!-- aplica o tema salvo antes de pintar a página (evita "piscar") -->
+    <script is:inline>
+      try {
+        const t = localStorage.getItem("s49-theme")
+        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <Header />
+    <main id="conteudo">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

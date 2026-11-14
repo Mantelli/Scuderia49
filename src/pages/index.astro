@@ -1,0 +1,158 @@
+---
+import Base from "../layouts/Base.astro"
+import PostCard from "../components/PostCard.astro"
+import { getPosts, dossieNumber } from "../lib/posts"
+
+const posts = await getPosts()
+const [featured, ...rest] = posts
+const recent = rest.slice(0, 6)
+---
+
+<Base>
+  <div class="wrap home">
+    <p class="edition label">
+      <span>Edição nº {String(posts.length).padStart(2, "0")}</span>
+      <span class="dot" aria-hidden="true">✦</span>
+      <span>Cultura automotiva sem filtro</span>
+    </p>
+
+    {
+      featured && (
+        <section aria-labelledby="destaque-titulo" class="featured-section">
+          <h2 id="destaque-titulo" class="section-title">
+            <span>Na pista agora</span>
+          </h2>
+          <PostCard post={featured} number={dossieNumber(featured, posts)} featured />
+        </section>
+      )
+    }
+
+    {
+      recent.length > 0 && (
+        <section aria-labelledby="anteriores-titulo">
+          <h2 id="anteriores-titulo" class="section-title">
+            <span>Dossiês anteriores</span>
+          </h2>
+          <div class="grid">
+            {recent.map((p) => (
+              <PostCard post={p} number={dossieNumber(p, posts)} />
+            ))}
+          </div>
+          {rest.length > recent.length && (
+            <p class="more">
+              <a class="btn" href="/dossies">
+                Ver todos os dossiês →
+              </a>
+            </p>
+          )}
+        </section>
+      )
+    }
+
+    <section class="manifesto" aria-labelledby="manifesto-titulo">
+      <div class="manifesto-inner">
+        <p class="label">O manifesto</p>
+        <h2 id="manifesto-titulo">E se a gente falasse de carros do jeito que conversa na mesa de um bar?</h2>
+        <p>
+          Com paixão. Com opinião. Com a acidez de quem entende que um carro é muito mais do que um meio de transporte:
+          é engenharia com alma, defeitos e, ocasionalmente, uma personalidade terrível.
+        </p>
+        <a class="btn" href="/sobre">Puxe uma cadeira →</a>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .home {
+    padding-top: 1.25rem;
+  }
+  .edition {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.9rem;
+    margin: 0 0 2.5rem;
+    font-size: 0.72rem;
+  }
+  .dot {
+    color: var(--red);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 0 1.6rem;
+    font-family: var(--font-label);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .section-title::before,
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 6px;
+    border-block: 1.5px solid var(--ink);
+  }
+  .section-title span {
+    flex: none;
+  }
+
+  .featured-section {
+    margin-bottom: 4rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+    gap: 2rem 1.75rem;
+  }
+  .more {
+    margin: 2.5rem 0 0;
+    text-align: center;
+  }
+
+  .manifesto {
+    margin-top: 5rem;
+    padding: 0.5rem;
+    background: repeating-linear-gradient(-45deg, var(--red) 0 14px, var(--paper) 14px 28px);
+  }
+  .manifesto-inner {
+    padding: clamp(1.75rem, 5vw, 3.5rem);
+    background: var(--navy);
+    color: #f3ead5;
+    text-align: center;
+  }
+  :global([data-theme="dark"]) .manifesto-inner {
+    background: #0f1626;
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme="light"])) .manifesto-inner {
+      background: #0f1626;
+    }
+  }
+  .manifesto .label {
+    color: var(--gold);
+    margin: 0 0 0.75rem;
+  }
+  .manifesto h2 {
+    max-width: 40rem;
+    margin: 0 auto 1rem;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    line-height: 1.1;
+  }
+  .manifesto p:not(.label) {
+    max-width: 36rem;
+    margin: 0 auto 1.75rem;
+    color: #d9cfb6;
+  }
+  .manifesto .btn {
+    box-shadow: 3px 3px 0 var(--gold);
+  }
+</style>

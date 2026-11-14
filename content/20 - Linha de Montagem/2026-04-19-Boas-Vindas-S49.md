@@ -1,6 +1,6 @@
 ---
 title: Boas-Vindas à Scuderia 49
-slug: post
+slug: boas-vindas
 date: 2026-04-19
 tags:
   - editorial

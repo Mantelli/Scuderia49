@@ -1,6 +1,6 @@
 ---
 title: "A Era de Ouro do K7: Engenharia, Alta Fidelidade e a Sociologia do Som sobre Rodas"
-slug: 2026-04-25-A-Era-De-Ouro-Do-K7
+slug: a-era-de-ouro-do-k7
 date: 2026-04-25
 tags:
   - editorial

@@ -1,0 +1,74 @@
+---
+import Base from "../../layouts/Base.astro"
+import PageHeader from "../../components/PageHeader.astro"
+import { getPosts, visibleTags, tagLabel } from "../../lib/posts"
+
+const posts = await getPosts()
+const counts = new Map<string, number>()
+for (const p of posts) for (const t of visibleTags(p)) counts.set(t, (counts.get(t) ?? 0) + 1)
+const tags = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+---
+
+<Base title="Garagem" description="Todos os assuntos da Scuderia 49, organizados por etiqueta.">
+  <div class="wrap">
+    <PageHeader kicker="A garagem" title="Cada assunto na sua vaga" intro="Escolha uma etiqueta e veja os dossiês dela." />
+    <ul class="bays">
+      {
+        tags.map(([t, n], i) => (
+          <li>
+            <a class="bay" href={`/garagem/${t}`}>
+              <span class="bay-number label">Vaga {String(i + 1).padStart(2, "0")}</span>
+              <span class="bay-name">{tagLabel(t)}</span>
+              <span class="bay-count label">
+                {n} {n === 1 ? "dossiê" : "dossiês"}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .bays {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+    gap: 1.5rem;
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+  .bay {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.4rem 1.4rem 1.2rem;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    border-left: 10px solid var(--green);
+    box-shadow: 5px 5px 0 var(--rule);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .bay:hover {
+    color: var(--ink);
+    text-decoration: none;
+    border-left-color: var(--red);
+    box-shadow: 5px 5px 0 var(--gold);
+  }
+  .bay-number {
+    font-size: 0.68rem;
+  }
+  .bay-name {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    line-height: 1.1;
+    text-transform: capitalize;
+  }
+  .bay-count {
+    font-size: 0.7rem;
+    color: var(--red-ink);
+  }
+</style>
