@@ -1,0 +1,183 @@
+---
+import { Image } from "astro:assets"
+import { lead, formatDate, readingTime, visibleTags, tagLabel, type Post } from "../lib/posts"
+
+interface Props {
+  post: Post
+  number: string
+  featured?: boolean
+}
+const { post, number, featured = false } = Astro.props
+const { title, date, image, imageAlt } = post.data
+const href = `/posts/${post.id}`
+const Heading = featured ? "h2" : "h3"
+---
+
+<article class:list={["card", { featured }]}>
+  {
+    image && typeof image !== "string" && (
+      <a href={href} class="card-photo" tabindex="-1" aria-hidden="true">
+        <Image src={image} alt={imageAlt ?? ""} widths={[480, 960]} sizes="(max-width: 48rem) 100vw, 50vw" />
+      </a>
+    )
+  }
+  <div class="card-head">
+    <span class="roundel" aria-hidden="true">{number}</span>
+    <div>
+      <p class="label kicker">Dossiê Nº {number}</p>
+      <p class="label meta">
+        <time datetime={date.toISOString()}>{formatDate(date)}</time> · {readingTime(post)} min de leitura
+      </p>
+    </div>
+  </div>
+  <Heading class="card-title"><a href={href}>{title}</a></Heading>
+  <p class="card-lead">{lead(post)}</p>
+  <div class="card-foot">
+    <span class="tags">
+      {visibleTags(post).map((t) => <a class="stamp" href={`/garagem/${t}`}>{tagLabel(t)}</a>)}
+    </span>
+    {featured && <a class="btn" href={href} aria-hidden="true" tabindex="-1">Ler o dossiê →</a>}
+  </div>
+</article>
+
+<style>
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: 1.4rem 1.4rem 1.3rem;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    border-radius: 2px;
+    box-shadow: 6px 6px 0 var(--rule);
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 var(--gold);
+  }
+  .card:has(.card-title a:focus-visible) {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+  }
+
+  .card-photo {
+    margin: -1.4rem -1.4rem 0;
+    display: block;
+    border-bottom: 1.5px solid var(--ink);
+    overflow: hidden;
+  }
+  .card-photo img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    filter: sepia(0.15);
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .card-head .roundel {
+    --size: 3.6rem;
+  }
+  .kicker {
+    margin: 0;
+    color: var(--red-ink);
+    font-weight: 600;
+  }
+  .meta {
+    margin: 0.15rem 0 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+  }
+
+  .card-title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.55rem;
+    line-height: 1.12;
+  }
+  .card-title a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  /* o card inteiro é clicável */
+  .card-title a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+  .card-title a:focus-visible {
+    outline: none;
+  }
+
+  .card-lead {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-foot {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 0.6rem;
+    border-top: 1.5px dashed var(--rule);
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  /* tags e botão ficam acima do link que cobre o card */
+  .stamp,
+  .btn {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Destaque ---- */
+  .featured {
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+    border-width: 2px;
+    box-shadow: 10px 10px 0 var(--red);
+  }
+  .featured:hover {
+    box-shadow: 12px 12px 0 var(--red);
+  }
+  .featured .card-photo {
+    margin: calc(-1 * clamp(1.5rem, 4vw, 2.75rem));
+    margin-bottom: 0;
+  }
+  .featured .card-head .roundel {
+    --size: clamp(4.2rem, 10vw, 6rem);
+  }
+  .featured .kicker {
+    font-size: 0.95rem;
+  }
+  .featured .card-title {
+    font-size: clamp(2rem, 5.5vw, 3.4rem);
+    line-height: 1.04;
+  }
+  .featured .card-lead {
+    font-size: clamp(1.02rem, 2vw, 1.2rem);
+    font-style: italic;
+    color: var(--ink);
+    -webkit-line-clamp: unset;
+    max-width: 46rem;
+  }
+</style>

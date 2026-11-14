@@ -1,0 +1,65 @@
+---
+const year = new Date().getFullYear()
+---
+
+<footer class="site-footer">
+  <div class="checker"></div>
+  <div class="wrap footer-inner">
+    <p class="footer-brand">Scuderia 49</p>
+    <p class="footer-motto">Feito com graxa, café e opinião.</p>
+    <ul class="footer-links">
+      <li><a href="/dossies">Dossiês</a></li>
+      <li><a href="/garagem">Garagem</a></li>
+      <li><a href="/sobre">Sobre</a></li>
+      <li><a href="/rss.xml">RSS</a></li>
+    </ul>
+    <p class="label">© {year} Ramon Mantelli · Scuderia 49</p>
+  </div>
+  <div class="stripes thin"></div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 5rem;
+    background: var(--paper-2);
+  }
+  .footer-inner {
+    padding-block: 2.5rem 2rem;
+    text-align: center;
+  }
+  .footer-brand {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .footer-motto {
+    margin: 0.4rem 0 1.2rem;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+  .footer-links a {
+    font-family: var(--font-label);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .footer-links a:hover {
+    color: var(--red);
+  }
+  .label {
+    margin: 0;
+    font-size: 0.7rem;
+  }
+</style>

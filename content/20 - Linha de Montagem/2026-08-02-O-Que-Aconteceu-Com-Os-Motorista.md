@@ -1,6 +1,6 @@
 ---
 title: O que aconteceu com os motoristas
-slug:
+slug: o-que-aconteceu-com-os-motoristas
 date: 2026-08-02
 tags:
   - editorial

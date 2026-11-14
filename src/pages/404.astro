@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro"
+---
+
+<Base title="Página não encontrada" description="Essa página saiu da pista.">
+  <div class="wrap lost">
+    <p class="roundel" aria-hidden="true">404</p>
+    <h1>Saímos da pista.</h1>
+    <p>Essa página rodou na curva e foi parar na brita. Pode ter mudado de endereço ou nunca ter existido.</p>
+    <a class="btn" href="/">Voltar para os boxes →</a>
+  </div>
+</Base>
+
+<style>
+  .lost {
+    max-width: 34rem;
+    padding-top: 4rem;
+    text-align: center;
+  }
+  .roundel {
+    --size: 7rem;
+    margin: 0 auto 2rem;
+    font-size: 2.3rem;
+  }
+  h1 {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 7vw, 3.4rem);
+    line-height: 1.05;
+  }
+  p:not(.roundel) {
+    margin: 0 0 2rem;
+    color: var(--ink-soft);
+  }
+</style>
