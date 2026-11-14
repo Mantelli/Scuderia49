@@ -15,3 +15,12 @@ private/
 
 # Notas pessoais do Markor (celular): ficam só no cofre
 content/markor/
+
+# Backups do Editor-chefe (ficam só no cofre)
+content/.originais/
+
+# Ideias e rascunhos nunca vão para o repositório público
+content/00 - Caixa de Ideias/*
+!content/00 - Caixa de Ideias/.gitkeep
+content/10 - Box/*
+!content/10 - Box/.gitkeep

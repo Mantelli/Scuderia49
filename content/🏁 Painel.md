@@ -15,6 +15,21 @@
 
 O comando de publicar confere o texto antes (Lead vazio, texto curto, capa sem descrição), carimba a data de hoje e move o post para a **Linha de Montagem**. Daí em diante é sozinho: o Syncthing leva o post para o PC, que envia ao GitHub, e o site atualiza em uns **3 minutos**. O PC precisa estar ligado e com sua sessão aberta. Corrigiu algo num post já publicado? É só salvar, que vai do mesmo jeito.
 
+## 🤖 Redação com agentes
+
+Para não publicar sozinho, mande o rascunho para a redação no Claude Code (no PC, nesta pasta do projeto):
+
+| Etapa | Você manda | Quem age | O que acontece | `status` depois |
+| ----- | ---------- | -------- | -------------- | --------------- |
+| 1 | `/revisar` | ✍️ Revisor | Dá um veredito e deixa sugestões `%% 📝 %%` no texto, sem reescrever nada | `revisado` |
+| 2 | (você) | Você | Ajusta o que fizer sentido, apaga os 📝 resolvidos e muda o status | `aprovado` |
+| 3 | `/editar` | ✂️ Editor-chefe | Lapida mantendo sua voz, confere fatos, põe imagens e registra tudo no topo (✂️). Guarda o original em `.originais` | `editado` |
+| 4 | `/publicar` | 🏁 Conferente | Confere tudo, roda o build, limpa os comentários da redação e publica | `Postado` |
+
+`/redacao` mostra em que etapa está cada rascunho. Enquanto um agente trabalha num texto, não edite esse texto no tablet.
+
+O caminho rápido continua valendo: o comando **🏁 Publicar** do Templater publica direto, sem passar pela redação.
+
 ## 🔧 No Box (rascunhos)
 
 ```base
@@ -31,6 +46,7 @@ views:
     name: No Box
     order:
       - file.name
+      - status
       - tags
       - file.mtime
     sort:
