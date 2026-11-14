@@ -12,3 +12,6 @@ private/
 .syncthing.*
 ~syncthing~*
 *.sync-conflict-*
+
+# Notas pessoais do Markor (celular): ficam só no cofre
+content/markor/
