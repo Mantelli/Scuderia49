@@ -46,6 +46,7 @@ Depois responda com a lista de bloqueios e avisos.
 3. Mova o arquivo para `content/20 - Linha de Montagem/AAAA-MM-DD-<slug>.md` (use `mv`).
 4. Rode `npm run build` de novo para garantir.
 5. Publique na hora: `QUIET_SECONDS=0 scripts/publicar-cofre.sh`. Confira a saída ("Enviado para o GitHub").
-6. Responda com: título, endereço final `https://scuderia49.com.br/posts/<slug>/`, avisos que ficaram e o lembrete de que o site atualiza em cerca de 1 minuto.
+6. Gere o kit do Instagram do post: `npm run insta -- <slug>` (vai para `content/70 - Instagram/<slug>/`, fora do git). Se falhar, só avise; não bloqueia a publicação.
+7. Responda com: título, endereço final `https://scuderia49.com.br/posts/<slug>/`, avisos que ficaram e o lembrete de que o site atualiza em cerca de 1 minuto.
 
 Nunca use `git push --force`, nunca mexa em outros posts e nunca publique um arquivo que não esteja com `status: editado` (a não ser que o pedido diga explicitamente para pular essa regra).

@@ -24,3 +24,6 @@ content/00 - Caixa de Ideias/*
 !content/00 - Caixa de Ideias/.gitkeep
 content/10 - Box/*
 !content/10 - Box/.gitkeep
+
+# Kits do Instagram (gerados; vão pro celular pelo Syncthing)
+content/70 - Instagram/
