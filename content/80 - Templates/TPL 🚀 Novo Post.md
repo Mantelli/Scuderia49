@@ -4,8 +4,8 @@ const semTitulo = /^(Sem título|Untitled)/i.test(tp.file.title);
 let titulo = semTitulo ? await tp.system.prompt("Título do post") : tp.file.title;
 if (!titulo) titulo = "Novo post";
 const formato = (await tp.system.suggester(
-  ["🏎️ Dossiê: texto longo, com história e pesquisa", "⛽ Pit Stop: nota rápida, 200 a 400 palavras"],
-  ["dossie", "pit-stop"], false, "Qual o formato?")) ?? "dossie";
+  ["🏎️ Dossiê: texto longo, com história e pesquisa", "💭 Pensata: crônica de opinião, 500 a 1.000 palavras", "⛽ Pit Stop: nota rápida, 200 a 400 palavras"],
+  ["dossie", "pensata", "pit-stop"], false, "Qual o formato?")) ?? "dossie";
 const slug = slugify(titulo);
 const hoje = tp.date.now("YYYY-MM-DD");
 await tp.file.move(`10 - Box/${hoje}-${slug}`);
@@ -15,13 +15,13 @@ title: <% JSON.stringify(titulo) %>
 slug: <% slug %>
 date: <% hoje %>
 tags:
-  - <% formato === "pit-stop" ? "pit-stop" : "editorial" %>
+  - <% formato === "dossie" ? "editorial" : formato %>
   - cultura-automotiva
 status: rascunho
 image:
 imageAlt:
 ---
-<%* if (formato === "dossie") { -%>
+<%* if (formato !== "pit-stop") { -%>
 > [!ABSTRACT] O Lead
 > <% tp.file.cursor(1) %>
 

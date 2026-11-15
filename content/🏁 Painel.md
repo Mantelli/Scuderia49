@@ -63,15 +63,26 @@ filters:
 properties:
   file.name:
     displayName: Ideia
+  note.prioridade:
+    displayName: "#"
+  note.formato:
+    displayName: Formato
+  note.serie:
+    displayName: Série
   criado:
     displayName: Anotada em
 views:
   - type: table
     name: Ideias
     order:
+      - note.prioridade
       - file.name
+      - note.formato
+      - note.serie
       - criado
     sort:
+      - property: note.prioridade
+        direction: ASC
       - property: file.ctime
         direction: DESC
 ```

@@ -26,9 +26,11 @@ export function cover(post: Post): ImageMetadata | undefined {
   return imagesByName.get(name)
 }
 
-/** Formato do post: "pit-stop" (nota rápida) ou dossiê. */
+/** Formato do post: "pit-stop" (nota rápida), "pensata" (crônica de opinião) ou dossiê. */
 export const isPitStop = (post: Post) => post.data.tags.includes("pit-stop")
-export const kicker = (post: Post, number: string) => (isPitStop(post) ? `Pit Stop Nº ${number}` : `Dossiê Nº ${number}`)
+export const isPensata = (post: Post) => post.data.tags.includes("pensata")
+export const formatName = (post: Post) => (isPitStop(post) ? "Pit Stop" : isPensata(post) ? "Pensata" : "Dossiê")
+export const kicker = (post: Post, number: string) => `${formatName(post)} Nº ${number}`
 
 const DRAFT = /^(rascunho|draft)$/i
 

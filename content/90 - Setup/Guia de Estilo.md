@@ -28,6 +28,7 @@ tipo: referencia
 | Formato     | Tamanho            | Estrutura                                                                 |
 | ----------- | ------------------ | ------------------------------------------------------------------------- |
 | 🏎️ Dossiê   | 700 a 1.500 palavras | Lead → A Largada (cena) → miolo com subtítulos narrativos → Nota do Autor (opcional) → A Bandeirada |
+| 💭 Pensata  | 500 a 1.000 palavras | Crônica de opinião e vivência, sem pesquisa pesada. Lead → cena de abertura → a virada do raciocínio → fecho com imagem forte. Vale primeira pessoa e lirismo; não precisa de fontes. |
 | ⛽ Pit Stop | 200 a 400 palavras | Uma ideia só. Primeiro parágrafo forte (vira o resumo), fecho com pergunta ou provocação. |
 
 ## Regras práticas

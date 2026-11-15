@@ -13,7 +13,7 @@ Leia o arquivo inteiro e confira cada item. Classifique cada problema como **BLO
 **Frontmatter**
 - `title` presente e coerente com o texto. (BLOQUEIO se faltar)
 - `slug` presente, em minúsculas, sem acento, só letras, números e hífens, e sem colidir com outro post em `content/20 - Linha de Montagem/`. (BLOQUEIO)
-- `tags` com o formato (`editorial` ou `pit-stop`) e pelo menos uma de assunto. (AVISO)
+- `tags` com o formato (`editorial`, `pensata` ou `pit-stop`) e pelo menos uma de assunto. (AVISO)
 - `image`: se preenchido, o arquivo existe no cofre e `imageAlt` está preenchido. (BLOQUEIO se a imagem não existir; AVISO sem `imageAlt`)
 
 **Conteúdo**
@@ -23,7 +23,7 @@ Leia o arquivo inteiro e confira cada item. Classifique cada problema como **BLO
 - Imagens do Wikimedia Commons têm crédito com licença logo abaixo. (BLOQUEIO se faltar)
 - Comentários `%% 📷 FOTO SUGERIDA %%` ou `%% ⚠️ não confirmado %%` restantes. (AVISO: liste-os)
 - Títulos com sintaxe certa (`## `), sem `#**texto**#` ou similares. (BLOQUEIO; pode corrigir você mesmo)
-- Tamanho adequado ao formato (Dossiê ≥ 500 palavras, Pit Stop ≥ 150). (AVISO)
+- Tamanho adequado ao formato (Dossiê ≥ 500 palavras, Pensata ≥ 400, Pit Stop ≥ 150). (AVISO)
 - Assinatura no fim. (AVISO; pode adicionar você mesmo)
 
 **Build**
