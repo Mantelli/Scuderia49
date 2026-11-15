@@ -43,7 +43,7 @@ Ledo engano. Quando a tampa foi aberta, eu vi o tamanho do estrago: tanto os com
 
 ## Ninguém quis fazer
 
-Como, no caso desse motor, esse tipo de problema condena o cabeçote, passei mais uns dias pensando e fazendo contas pra ver se compensava a troca/retífica do bloco ou se eu montava e vendia o carro, que já estava anunciado, porém sem interessados.
+Como, no caso desse motor, esse tipo de problema condena o cabeçote, passei mais uns dias pensando e fazendo contas pra ver se compensava a troca/retífica do cabeçote ou se eu montava e vendia o carro, que já estava anunciado, porém sem interessados.
 
 Depois de uma extensa busca por retíficas aqui na cidade que fizessem o serviço, ninguém quis fazer. Todos recomendaram a troca por uma peça nova chinesa, o que eu não queria.
 
@@ -71,7 +71,7 @@ O Pablo chegou e revolucionou tudo. Desmontamos tudo de novo e remontamos (dessa
 
 ## Liga, mas ainda não anda
 
-Depois de alguns finais de semana de trabalho e algumas peças recompradas, o carro está quase pronto. Hoje, dia 14 de novembro de 2026, ele ainda não anda, mas liga e tem pressão de óleo. Ela ligou aqui em casa, na garagem, com a plateia completa: eu, meus pais e o Pablo.
+Depois de alguns finais de semana de trabalho e algumas peças recompradas, a Megane está quase pronta. Hoje, dia 14 de novembro de 2026, ela ainda não anda, mas liga e tem pressão de óleo. Ela ligou aqui em casa, na garagem, com a plateia completa: eu, meus pais e o Pablo.
 
 Porém, fica acelerado, o que eu acredito que seja fruto de uma entrada falsa de ar. Por causa disso, e porque quebrei o sensor MAP durante a desmontagem da admissão (pra variar), comprei um kit de vedações novas (comprei de novo, mas dessa vez originais Renault, kkkkk) e um sensor MAP novo, que vão chegar semana que vem.
 
@@ -88,7 +88,7 @@ Os nomes eu tiro de *Carros* porque é um filme que, junto com *Velozes e Furios
 
 Pra mim, todo carro tem uma personalidade. Ele é uma entidade com, digamos, alma, e da mesma forma que você cuida dele, ele cuida de você.
 
-Foi a Lizzie quem trouxe a minha mãe do hospital, de Xanxerê até Chapecó, quando ela fez a cirurgia do coração, de peito aberto. E a minha mãe não sentiu dor nenhuma, graças à suspensão desse carro, que, mesmo cansada, fez um ótimo trabalho.
+Foi a Lizzie quem trouxe a minha mãe do hospital, de Xanxerê até Chapecó, quando ela fez a cirurgia do coração, de peito aberto. E a minha mãe não sentiu dor nenhuma, graças à suspensão da Lizzie, que, mesmo cansada, fez um ótimo trabalho.
 
 ---
 **Escrito por Ramon Mantelli** *Fundador da Scuderia 49 — A alma das máquinas, documentada em pixels.*
