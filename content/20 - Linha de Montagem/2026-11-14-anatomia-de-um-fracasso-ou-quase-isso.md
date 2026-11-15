@@ -2,6 +2,7 @@
 title: Anatomia de um Fracasso, ou Quase Isso
 slug: anatomia-de-um-fracasso-ou-quase-isso
 date: 2026-11-14
+hora: "23:39"
 tags:
   - editorial
   - cultura-automotiva

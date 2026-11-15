@@ -40,7 +40,8 @@ export async function getPosts(): Promise<Post[]> {
     "posts",
     (p) => p.data.tags.includes("post") && !DRAFT.test(p.data.status ?? ""),
   )
-  return all.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  // Mesma data: desempata pela hora de publicação ("HH:MM"), para a numeração não trocar.
+  return all.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf() || (b.data.hora ?? "").localeCompare(a.data.hora ?? ""))
 }
 
 /** Número do dossiê: ordem cronológica de publicação (o primeiro post é o Nº 01). */

@@ -2,6 +2,7 @@
 title: "O Fusca não morre"
 slug: o-fusca-nao-morre
 date: 2026-11-14
+hora: "18:25"
 tags:
   - pit-stop
   - cultura-automotiva

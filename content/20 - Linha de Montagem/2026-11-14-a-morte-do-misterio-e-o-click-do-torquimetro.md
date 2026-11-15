@@ -2,6 +2,7 @@
 title: A morte do mistério e o click do torquímetro
 slug: a-morte-do-misterio-e-o-click-do-torquimetro
 date: 2026-11-14
+hora: "23:15"
 tags:
   - pensata
   - cultura-automotiva

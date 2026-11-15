@@ -42,7 +42,7 @@ Depois responda com a lista de bloqueios e avisos.
 
 ## Se estiver tudo certo (só avisos ou nada)
 1. Remova do texto todos os comentários de bastidor da redação: blocos e linhas `%% 📝 ... %%`, `%% ✂️ ... %%`, `%% 🏁 ... %%`, `%% 📷 ... %%`, `%% ⚠️ ... %%`. Não remova outros comentários `%%` do autor.
-2. No frontmatter: `status: Postado`, `date:` com a data de hoje (AAAA-MM-DD), adicione a tag `post` se faltar, remova `veredito` se existir.
+2. No frontmatter: `status: Postado`, `date:` com a data de hoje (AAAA-MM-DD), `hora:` com a hora atual entre aspas ("HH:MM", serve para desempatar a numeração de posts do mesmo dia), adicione a tag `post` se faltar, remova `veredito` se existir.
 3. Mova o arquivo para `content/20 - Linha de Montagem/AAAA-MM-DD-<slug>.md` (use `mv`).
 4. Rode `npm run build` de novo para garantir.
 5. Publique na hora: `QUIET_SECONDS=0 scripts/publicar-cofre.sh`. Confira a saída ("Enviado para o GitHub").

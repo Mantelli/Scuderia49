@@ -26,6 +26,7 @@ const posts = defineCollection({
     // capa: "[[foto.jpg]]", "foto.jpg" ou caminho — procurada nas imagens do cofre
     image: z.string().nullish(),
     imageAlt: z.string().nullish(),
+    hora: z.coerce.string().nullish(),
   }),
 })
 
