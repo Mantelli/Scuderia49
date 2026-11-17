@@ -71,6 +71,9 @@ ol.steps{margin:0;padding-left:20px;display:grid;gap:8px}
 footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
 @media (max-width:720px){.calc{grid-template-columns:1fr}.roles{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.video{display:grid;gap:10px}
+.video video{width:100%;max-width:100%;aspect-ratio:16/10;border-radius:12px;border:1px solid var(--line);background:#0f172a;display:block}
+.video p{font-size:13px;color:var(--muted)}
 </style>
 
 </head>
@@ -86,6 +89,15 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
       <span class="pill p-plan">previsto (demo de 28/11)</span>
     </div>
   </header>
+
+  <section class="video">
+    <span class="eyebrow">Veja funcionando · 74 s</span>
+    <video controls playsinline preload="metadata" poster="itos-0.0.02-capa.jpg">
+      <source src="itos-0.0.02.webm" type="video/webm">
+      Seu navegador não reproduz este vídeo. <a href="itos-0.0.02.webm">Baixe o arquivo</a>.
+    </video>
+    <p>Gravação real do GLPI com o ITOS, com dados fictícios. O técnico escreve uma nota interna com #responder, o ITOS propõe a resposta padronizada, o técnico aprova com #ok e o usuário vê só a resposta aprovada. A espera do modelo foi cortada.</p>
+  </section>
 
   <section>
     <span class="eyebrow">No dia a dia</span>
