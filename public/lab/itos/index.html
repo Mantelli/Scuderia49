@@ -6,259 +6,261 @@
 <!-- Página avulsa, fora do menu e do sitemap: não indexar -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="color-scheme" content="light dark">
-<title>ITOS por dentro</title>
+<title>ITOS no dia a dia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-/* Layout: uma coluna de leitura (~72ch) com faixas largas para o fluxo e a linha do tempo do chamado; console de suporte, não landing page. */
-:root {
-  --bg: #f3f5f4;
-  --surface: #ffffff;
-  --ink: #15211f;
-  --muted: #55625f;
-  --line: #d6dedb;
-  --accent: #0d6e66;
-  --accent-soft: #dcefec;
-  --warm: #b4570f;
-  --warm-soft: #f8e7d6;
-  --private: #6b4fa0;
-  --private-soft: #ece6f6;
-  --code-bg: #e8edeb;
-  --font-display: "Sora", "IBM Plex Sans", system-ui, sans-serif;
-  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+/* Layout: coluna única de leitura (~820px), calculadora em duas colunas que vira uma no celular */
+:root{
+  --bg:#f5f7fa; --surface:#ffffff; --fg:#14202e; --muted:#566476; --line:#dde3ea;
+  --accent:#1f5fae; --accent-soft:#e3edf9; --ok:#1d7a4c; --ok-soft:#e1f3e9; --warn:#9a6200; --warn-soft:#fbf0d9; --plan:#5b4bb3; --plan-soft:#ece9fa;
+  --f-display:"Archivo",system-ui,sans-serif; --f-body:"Inter",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0f1615; --surface: #16201e; --ink: #e4ecea; --muted: #9aa9a5; --line: #2a3734;
-    --accent: #4fc2b6; --accent-soft: #163a36; --warm: #f0a35c; --warm-soft: #3a2a1a;
-    --private: #b9a2e6; --private-soft: #2a2340; --code-bg: #1d2a28; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0f1615; --surface: #16201e; --ink: #e4ecea; --muted: #9aa9a5; --line: #2a3734;
-  --accent: #4fc2b6; --accent-soft: #163a36; --warm: #f0a35c; --warm-soft: #3a2a1a;
-  --private: #b9a2e6; --private-soft: #2a2340; --code-bg: #1d2a28; color-scheme: dark;
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.6;
-  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
-  padding-block: 40px 72px;
-}
-main { max-width: 980px; margin: 0 auto; display: grid; gap: 56px; }
-h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.2; }
-h2 { font-size: 1.55rem; }
-h3 { font-size: 1.05rem; }
-p { margin: 0; }
-.read { max-width: 68ch; }
-code, .mono { font-family: var(--font-mono); font-size: 0.92em; }
-code { background: var(--code-bg); padding: 1px 6px; border-radius: 4px; }
-.eyebrow { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
-section { display: grid; gap: 20px; }
-.hero { display: grid; gap: 18px; }
-.hero h1 { font-size: clamp(2.4rem, 7vw, 4rem); letter-spacing: -0.02em; }
-.hero h1 span { color: var(--accent); }
-.lede { font-size: 1.2rem; max-width: 60ch; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { font-family: var(--font-mono); font-size: 0.8rem; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--surface); }
-.flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 10px; background: var(--surface); overflow: hidden; }
-.stage { padding: 18px; display: grid; gap: 6px; align-content: start; border-right: 1px solid var(--line); min-width: 0; }
-.stage:last-child { border-right: 0; }
-.stage .n { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
-.stage h3 { font-size: 1rem; }
-.stage p { font-size: 0.9rem; color: var(--muted); }
-.stage .tech { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); }
-.stage.model { background: var(--accent-soft); }
-.flow-note { font-size: 0.9rem; color: var(--muted); }
-.timeline { display: grid; gap: 10px; }
-.ev { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 14px; align-items: start; }
-.who { font-family: var(--font-mono); font-size: 0.78rem; padding-top: 12px; color: var(--muted); text-align: right; }
-.bubble { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; background: var(--surface); min-width: 0; }
-.bubble .tag { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; display: inline-block; margin-bottom: 6px; padding: 2px 8px; border-radius: 4px; }
-.priv { border-color: var(--private); background: var(--private-soft); }
-.priv .tag { background: var(--private); color: var(--surface); }
-.tech-note { border-left: 4px solid var(--warm); }
-.tech-note .tag { background: var(--warm); color: var(--surface); }
-.pub { border-left: 4px solid var(--accent); }
-.pub .tag { background: var(--accent); color: var(--surface); }
-.bubble pre { margin: 0; white-space: pre-wrap; font-family: var(--font-body); font-size: 0.95rem; }
-.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0 28px; }
-.rule { padding: 14px 0; border-top: 1px solid var(--line); display: grid; gap: 4px; }
-.rule h3 { font-size: 1rem; }
-.rule p { color: var(--muted); font-size: 0.93rem; }
-.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
-.fig { padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); display: grid; gap: 4px; }
-.fig .v { font-family: var(--font-display); font-size: 2rem; font-variant-numeric: tabular-nums; color: var(--accent); }
-.fig .l { font-size: 0.88rem; color: var(--muted); }
-details { border-top: 1px solid var(--line); padding: 12px 0; }
-details:last-child { border-bottom: 1px solid var(--line); }
-summary { cursor: pointer; font-weight: 600; }
-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-details p { margin-top: 8px; color: var(--muted); max-width: 68ch; }
-.next { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
-.next div { padding: 16px; border: 1px dashed var(--line); border-radius: 10px; display: grid; gap: 6px; align-content: start; }
-.next .when { font-family: var(--font-mono); font-size: 0.78rem; color: var(--warm); }
-.next p { color: var(--muted); font-size: 0.93rem; }
-.how { display: grid; gap: 12px; }
-footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); padding-top: 16px; }
-@media (max-width: 760px) {
-  .flow { grid-template-columns: 1fr 1fr; }
-  .stage:nth-child(2) { border-right: 0; }
-  .stage:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-}
-@media (max-width: 480px) {
-  .flow { grid-template-columns: 1fr; }
-  .stage { border-right: 0; border-bottom: 1px solid var(--line); }
-  .stage:last-child { border-bottom: 0; }
-  .ev { grid-template-columns: 1fr; gap: 4px; }
-  .who { text-align: left; padding-top: 0; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  details[open] p { animation: in .2s ease-out; }
-  @keyframes in { from { opacity: .4; transform: translateY(-2px); } to { opacity: 1; transform: none; } }
-}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f151d; --surface:#17202b; --fg:#e6ecf3; --muted:#9aa8b8; --line:#2a3644;
+  --accent:#7fb0ef; --accent-soft:#1c2e45; --ok:#6fd19f; --ok-soft:#163327; --warn:#f0bf62; --warn-soft:#3a2d12; --plan:#b3a8f2; --plan-soft:#2a2547; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f151d; --surface:#17202b; --fg:#e6ecf3; --muted:#9aa8b8; --line:#2a3644;
+  --accent:#7fb0ef; --accent-soft:#1c2e45; --ok:#6fd19f; --ok-soft:#163327; --warn:#f0bf62; --warn-soft:#3a2d12; --plan:#b3a8f2; --plan-soft:#2a2547; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:15px/1.6 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:820px;margin:0 auto;padding-block:40px 64px;display:grid;gap:44px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(28px,5vw,40px);font-weight:800;letter-spacing:-.02em}
+h2{font-size:23px;font-weight:700}
+h3{font-size:16px;font-weight:700}
+p{margin:0;max-width:68ch}
+.eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lede{font-size:17px;color:var(--muted)}
+section{display:grid;gap:16px}
+.pill{display:inline-block;font:600 11px/1 var(--f-mono);letter-spacing:.03em;padding:5px 8px;border-radius:999px;white-space:nowrap}
+.p-ok{background:var(--ok-soft);color:var(--ok)} .p-test{background:var(--warn-soft);color:var(--warn)} .p-plan{background:var(--plan-soft);color:var(--plan)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:13px;color:var(--muted);align-items:center}
+.roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.role{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px;align-content:start}
+.role ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.role li{min-width:0}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 12px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.num{font-variant-numeric:tabular-nums;font-family:var(--f-mono)}
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px}
+.inputs{display:grid;gap:12px}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 92px;gap:10px;align-items:center}
+.field label{font-size:13.5px;color:var(--fg)}
+.field small{display:block;color:var(--muted);font-size:12px}
+.field input{width:100%;box-sizing:border-box;font:600 15px var(--f-mono);padding:7px 9px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--fg);text-align:right}
+.field input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.group{font:600 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:6px;border-top:1px dashed var(--line)}
+.group:first-child{border-top:0;padding-top:0}
+.out{display:grid;gap:14px;align-content:start}
+.big{background:var(--accent-soft);border-radius:10px;padding:16px}
+.big .v{font:800 38px/1.1 var(--f-display);color:var(--accent);font-variant-numeric:tabular-nums}
+.big .l{font-size:13px;color:var(--muted)}
+.rows{display:grid;gap:8px;font-size:13.5px}
+.rows div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.rows b{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.note{font-size:12.5px;color:var(--muted)}
+.callout{border-left:3px solid var(--warn);background:var(--warn-soft);padding:12px 14px;border-radius:0 8px 8px 0;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;gap:4px}
+.stat .v{font:800 26px/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.stat .l{font-size:12.5px;color:var(--muted)}
+ol.steps{margin:0;padding-left:20px;display:grid;gap:8px}
+footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+@media (max-width:720px){.calc{grid-template-columns:1fr}.roles{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
+
 </head>
 <body>
 <main>
-  <header class="hero">
-    <div class="eyebrow">Prévia da versão 0.0.02 · homelab, dados fictícios</div>
-    <h1>ITOS <span>por dentro</span></h1>
-    <p class="lede">Um assistente de suporte que roda inteiro num PC: lê os chamados do GLPI, prepara o técnico e padroniza as respostas ao usuário. Nenhum dado sensível chega à IA, e a IA nunca fala sozinha com o usuário.</p>
-    <div class="chips">
-      <span class="chip">100% local</span><span class="chip">GPU de 3 GB</span><span class="chip">sem custo por chamado</span><span class="chip">GLPI 11</span><span class="chip">MCP</span>
+  <header style="display:grid;gap:12px">
+    <span class="eyebrow">ITOS · assistente do service desk no GLPI</span>
+    <h1>Onde o ITOS ajuda no dia a dia, e quanto isso pode render</h1>
+    <p class="lede">O ITOS lê cada chamado novo no GLPI e entrega ao técnico um resumo com os artigos da base que se aplicam. Também responde o usuário na hora e transforma a anotação do técnico numa resposta padronizada, publicada só depois da aprovação dele. Tudo roda num servidor interno, sem enviar dados para fora.</p>
+    <div class="legend">
+      <span class="pill p-ok">funcionando (0.0.01)</span>
+      <span class="pill p-test">em teste (0.0.02)</span>
+      <span class="pill p-plan">previsto (demo de 28/11)</span>
     </div>
   </header>
 
   <section>
-    <div class="eyebrow">Arquitetura</div>
-    <h2>Quatro peças, cada uma com um papel só</h2>
-    <div class="flow" role="list">
-      <div class="stage" role="listitem">
-        <span class="n">entrada</span>
-        <h3>GLPI</h3>
-        <p>Chamado ou acompanhamento novo dispara um webhook assinado, só com os números de identificação.</p>
-        <span class="tech">GLPI 11 · MariaDB</span>
+    <span class="eyebrow">No dia a dia</span>
+    <h2>O que muda para cada pessoa</h2>
+    <div class="roles">
+      <div class="role">
+        <h3>Técnico</h3>
+        <ul>
+          <li>Abre o chamado e já encontra um resumo, as causas prováveis e os artigos da base que se aplicam. <span class="pill p-ok">funcionando</span></li>
+          <li>Escreve do jeito dele numa nota interna (<span class="num">#responder</span>) e recebe a resposta pronta, no tom da equipe. <span class="pill p-test">em teste</span></li>
+          <li>Ao encerrar, a solução sai padronizada e o caso vira um rascunho de artigo. Ninguém precisa escrever artigo do zero. <span class="pill p-plan">previsto</span></li>
+        </ul>
       </div>
-      <div class="stage" role="listitem">
-        <span class="n">orquestra</span>
-        <h3>n8n</h3>
-        <p>Encadeia os passos e mostra cada execução visualmente. Não guarda segredo nem decide regra.</p>
-        <span class="tech">n8n 2.43</span>
+      <div class="role">
+        <h3>Coordenação</h3>
+        <ul>
+          <li>Todas as respostas seguem o mesmo padrão, sem linguagem técnica, culpa ou promessa, porque as regras estão no código. <span class="pill p-test">em teste</span></li>
+          <li>Os rascunhos de artigo chegam por e-mail ou Teams para aprovação, e a base cresce com os casos reais. <span class="pill p-plan">previsto</span></li>
+          <li>Cada ação do ITOS fica registrada no chamado, então dá para auditar o que ele fez.</li>
+        </ul>
       </div>
-      <div class="stage" role="listitem">
-        <span class="n">porteiro</span>
-        <h3>itos-mcp</h3>
-        <p>Único que fala com o GLPI. Mascara dados, valida a saída da IA e grava, com permissão mínima.</p>
-        <span class="tech">Python 3.12 · MCP</span>
+      <div class="role">
+        <h3>Usuário</h3>
+        <ul>
+          <li>Continua usando o GLPI como hoje. Não existe conversa com robô: ele só vê textos-padrão da equipe ou respostas que um técnico aprovou.</li>
+          <li>O acompanhamento de "chamado recebido, em análise" aparece logo depois da abertura. <span class="pill p-ok">funcionando</span></li>
+          <li>Quando falta informação, o chamado já pede os dados que o técnico ia precisar, no texto-padrão da equipe. <span class="pill p-ok">funcionando</span></li>
+          <li>Se alguém escreve uma senha no chamado, recebe o aviso-padrão para não enviar senhas, e esse texto não passa pela IA. <span class="pill p-ok">funcionando</span></li>
+        </ul>
       </div>
-      <div class="stage model" role="listitem">
-        <span class="n">pensa</span>
-        <h3>Modelo local</h3>
-        <p>Recebe texto, devolve JSON. Não tem acesso a nenhuma ferramenta nem ao GLPI.</p>
-        <span class="tech">Ollama · qwen3 1.7B</span>
+      <div class="role">
+        <h3>Empresa</h3>
+        <ul>
+          <li>O modelo roda em servidor próprio, então nenhum dado de chamado sai da rede.</li>
+          <li>Não há custo de licença nem cobrança por uso de IA. O custo é o servidor (idealmente com GPU) e a manutenção.</li>
+          <li>Como a base cresce sozinha, quem entra na equipe aprende mais rápido.</li>
+        </ul>
       </div>
-    </div>
-    <p class="flow-note read">Tudo sobe com um <code>docker compose up</code>. O acesso de fora de casa passa por uma VPN privada (Tailscale), sem nenhuma porta aberta no roteador.</p>
-  </section>
-
-  <section>
-    <div class="eyebrow">Novidade da 0.0.02</div>
-    <h2>O técnico escreve do jeito dele. O ITOS responde no padrão da equipe.</h2>
-    <p class="read">Um chamado fictício, do jeito que aparece no GLPI. As notas em roxo são privadas: o usuário só vê o que está em verde.</p>
-    <div class="timeline">
-      <div class="ev">
-        <div class="who">usuário</div>
-        <div class="bubble"><pre>A impressora da recepção não imprime nada desde cedo; os documentos ficam parados na fila.</pre></div>
-      </div>
-      <div class="ev">
-        <div class="who">técnico</div>
-        <div class="bubble tech-note priv"><span class="tag">nota privada</span><div class="mono">#responder fila de impressão travada no computador da recepção; limpei a fila e reiniciei o serviço de impressão, testei com o usuário e imprimiu normalmente.</div></div>
-      </div>
-      <div class="ev">
-        <div class="who">ITOS · ~30 s</div>
-        <div class="bubble priv"><span class="tag">proposta privada</span><pre>Olá,
-
-Analisamos a ocorrência informada.
-
-Limpamos a fila de impressão e reiniciamos o serviço de impressão no computador da recepção. O processo foi normalizado. Os testes realizados confirmaram o funcionamento correto.
-
-Por favor, faça uma nova tentativa. Caso identifique qualquer divergência, basta retornar neste mesmo chamado.
-
-Atenciosamente,
-Equipe de Suporte</pre></div>
-      </div>
-      <div class="ev">
-        <div class="who">técnico</div>
-        <div class="bubble tech-note priv"><span class="tag">nota privada</span><div class="mono">#ok</div></div>
-      </div>
-      <div class="ev">
-        <div class="who">ITOS · segundos</div>
-        <div class="bubble pub"><span class="tag">publicado ao usuário</span><pre>O mesmo texto da proposta, sem mudar uma vírgula (conferido por hash).</pre></div>
-      </div>
-    </div>
-    <p class="read">Não gostou? <code>#refazer mais curta</code> gera outra versão. Nota interna sem tag continua interna. <code>#responder</code> sem detalhe faz o ITOS pedir o que foi feito, sem publicar nada.</p>
-  </section>
-
-  <section>
-    <div class="eyebrow">Como o texto é montado</div>
-    <h2>A IA escreve três frases. O resto é código.</h2>
-    <div class="read how">
-      <p>O modelo classifica o atendimento (<b>incidente</b>, <b>solicitação</b>, <b>terceiros</b> ou <b>andamento</b>) e escreve só <i>o que aconteceu</i>, <i>o que foi feito</i> e, se houver, <i>o que o usuário deve fazer</i>. Saudação, frases-padrão e assinatura são fixas, versionadas no código, baseadas no agente de respostas que a equipe já usa.</p>
-      <p>Depois, regras em código conferem cada frase. “renovei” vira “renovamos”. “Os testes confirmaram” só entra se o técnico falou em teste: quem decide é o código, não a IA.</p>
     </div>
   </section>
 
   <section>
-    <div class="eyebrow">Segurança</div>
-    <h2>Quem segura é o código, não o prompt</h2>
-    <div class="rules">
-      <div class="rule"><h3>A IA não tem a chave de casa</h3><p>O modelo só recebe e devolve texto. Quem grava no GLPI é o itos-mcp, com um usuário de serviço de permissão mínima e duas credenciais separadas: uma só lê, a outra escreve.</p></div>
-      <div class="rule"><h3>Dado sensível não sai do lugar</h3><p>CPF, senha, token e e-mail são mascarados antes de chegar ao modelo e conferidos de novo na saída. O webhook leva só números, assinado com HMAC.</p></div>
-      <div class="rule"><h3>Proposta com regras</h3><p>É recusada se tiver IP, código de erro, termo técnico, culpa (“o usuário esqueceu”), promessa (“não vai mais acontecer”), teste inventado ou ação que não está na nota do técnico.</p></div>
-      <div class="rule"><h3>Anti-adulteração</h3><p>O <code>#ok</code> publica pelo número da proposta, nunca por texto. Se alguém editar a proposta depois de gravada, o hash não confere e nada é publicado.</p></div>
-      <div class="rule"><h3>Nada acontece duas vezes</h3><p>Se o GLPI reenviar o mesmo evento, o ITOS reconhece e não repete. Sem banco de dados próprio: o estado fica em marcadores no próprio GLPI.</p></div>
-      <div class="rule"><h3>Injeção de prompt</h3><p>Num teste, a IA obedeceu a uma instrução escondida no chamado. A validação barrou a saída antes de qualquer gravação.</p></div>
+    <span class="eyebrow">Demandas reduzidas</span>
+    <h2>O que sai das costas da equipe</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Demanda de hoje</th><th>Como o ITOS reduz</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>Usuário ligando ou mandando mensagem para saber se o chamado foi recebido</td><td>Acompanhamento-padrão de "recebido, em análise" logo depois da abertura</td><td><span class="pill p-ok">funcionando</span></td></tr>
+          <tr><td>Ida e volta para pedir informação básica em chamado vago</td><td>Texto-padrão pedindo os dados que faltam, já na abertura</td><td><span class="pill p-ok">funcionando</span></td></tr>
+          <tr><td>Ler o chamado e procurar artigo na base antes de começar</td><td>Resumo técnico privado, com os artigos de mesmo sintoma já citados</td><td><span class="pill p-ok">funcionando</span></td></tr>
+          <tr><td>Senha enviada no chamado e risco de LGPD</td><td>Detecção de dado sensível e orientação automática ao usuário</td><td><span class="pill p-ok">funcionando</span></td></tr>
+          <tr><td>Redigir, revisar o tom e copiar e colar respostas</td><td>O técnico escreve uma nota curta e aprova com <span class="num">#ok</span></td><td><span class="pill p-test">em teste</span></td></tr>
+          <tr><td>Respostas fora do padrão e linguagem técnica para o usuário</td><td>Modelos fixos e regras em código que recusam IP, código de erro, culpa e promessa</td><td><span class="pill p-test">em teste</span></td></tr>
+          <tr><td>Resolver do zero um problema que já apareceu, porque ninguém documentou</td><td>Rascunho de artigo gerado no encerramento e enviado para aprovação</td><td><span class="pill p-plan">previsto</span></td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
   <section>
-    <div class="eyebrow">Números</div>
-    <h2>Medido, não prometido</h2>
-    <div class="figures">
-      <div class="fig"><span class="v">261</span><span class="l">testes automáticos passando</span></div>
-      <div class="fig"><span class="v">27</span><span class="l">chamados fictícios na avaliação de qualidade</span></div>
-      <div class="fig"><span class="v">93%</span><span class="l">respostas iniciais com o template certo</span></div>
-      <div class="fig"><span class="v">0</span><span class="l">respostas públicas indevidas na avaliação</span></div>
-      <div class="fig"><span class="v">3 GB</span><span class="l">de memória de vídeo bastam para o modelo</span></div>
+    <span class="eyebrow">Rendimento</span>
+    <h2>Quanto tempo a equipe ganha</h2>
+    <div class="callout"><b>Volume e equipe são reais: 12 técnicos e 250 a 300 chamados encerrados por dia.</b> Os minutos de cada tarefa e o custo da hora ainda são estimativas, sem separar os chamados por complexidade. Ajuste com a percepção da equipe e o resultado é recalculado na hora. Use o "tempo médio disponível por chamado" para conferir se as estimativas cabem na rotina.</div>
+    <div class="calc">
+      <div class="inputs">
+        <div class="group">Volume</div>
+        <div class="field"><label for="n">Chamados encerrados por dia<small>equipe hoje: 250 a 300</small></label><input id="n" type="number" min="0" value="275"></div>
+        <div class="field"><label for="dias">Dias úteis por mês</label><input id="dias" type="number" min="0" value="22"></div>
+        <div class="field"><label for="tec">Técnicos na equipe</label><input id="tec" type="number" min="0" value="12"></div>
+        <div class="field"><label for="hora">Custo da hora do técnico (R$)<small>salário com encargos ÷ horas</small></label><input id="hora" type="number" min="0" value="45"></div>
+
+        <div class="group">Triagem e resumo · funcionando</div>
+        <div class="field"><label for="t1">Min. para dar o primeiro retorno ao usuário</label><input id="t1" type="number" min="0" step="0.5" value="1"></div>
+        <div class="field"><label for="t2">Min. para entender o chamado e procurar na base</label><input id="t2" type="number" min="0" step="0.5" value="4"></div>
+        <div class="field"><label for="r2">% desse tempo poupado pelo resumo</label><input id="r2" type="number" min="0" max="100" value="25"></div>
+
+        <div class="group">Respostas padronizadas · em teste</div>
+        <div class="field"><label for="t3">Min. para redigir a resposta final hoje</label><input id="t3" type="number" min="0" step="0.5" value="3"></div>
+        <div class="field"><label for="t4">Min. com o ITOS (nota curta, leitura e #ok)</label><input id="t4" type="number" min="0" step="0.5" value="1.5"></div>
+
+        <div class="group">Artigos · previsto</div>
+        <div class="field"><label for="pa">% de chamados que viram artigo</label><input id="pa" type="number" min="0" max="100" value="2"></div>
+        <div class="field"><label for="t5">Min. para escrever um artigo do zero</label><input id="t5" type="number" min="0" value="30"></div>
+        <div class="field"><label for="t6">Min. para revisar o rascunho do ITOS</label><input id="t6" type="number" min="0" value="10"></div>
+      </div>
+      <div class="out" aria-live="polite">
+        <div class="big"><div class="v" id="o-h">0 h</div><div class="l">de técnico liberadas por mês</div></div>
+        <div class="big"><div class="v" id="o-fte">0</div><div class="l" id="o-fte-l">técnicos em tempo integral (176 h/mês)</div></div>
+        <div class="rows">
+          <div><span>Chamados por mês</span><b id="o-n">0</b></div>
+          <div><span>Tempo médio disponível por chamado hoje</span><b id="o-cap">0 min</b></div>
+          <div><span>Minutos poupados por chamado</span><b id="o-pc">0 min</b></div>
+          <div><span>Primeiro retorno</span><b id="o1">0 h</b></div>
+          <div><span>Leitura e busca na base</span><b id="o2">0 h</b></div>
+          <div><span>Redação das respostas</span><b id="o3">0 h</b></div>
+          <div><span>Artigos</span><b id="o4">0 h</b></div>
+          <div><span>Valor estimado por mês</span><b id="o-r">R$ 0</b></div>
+          <div><span>Valor estimado por ano</span><b id="o-ra">R$ 0</b></div>
+        </div>
+        <p class="note">O tempo liberado não vira demissão. Ele vira fila menor, atendimento mais rápido e tempo para projetos. A conta não inclui o ganho do usuário, que passa a esperar menos, nem a qualidade de uma base que cresce sozinha.</p>
+      </div>
     </div>
   </section>
 
   <section>
-    <div class="eyebrow">Próximos passos</div>
-    <h2>O que vem na versão completa</h2>
-    <div class="next">
-      <div><span class="when">demonstração · 28/11</span><h3>#encerrar</h3><p>Solução padronizada no fechamento, sempre a pedido do técnico. O ITOS nunca encerra sozinho.</p></div>
-      <div><span class="when">demonstração · 28/11</span><h3>Base que aprende</h3><p>Do chamado resolvido, o ITOS cria um rascunho de artigo para a base. O coordenador aprova antes de publicar.</p></div>
-      <div><span class="when">a decidir com a equipe</span><h3>Forma do pedido</h3><p>Tag, template ou categoria: as tags <code>#responder</code> e <code>#ok</code> são provisórias, para os testes.</p></div>
+    <span class="eyebrow">O que já foi medido</span>
+    <h2>Números dos testes, com dados fictícios</h2>
+    <div class="stats">
+      <div class="stat"><div class="v num">&lt; 1 min</div><div class="l">da abertura até o resumo e a resposta ao usuário</div></div>
+      <div class="stat"><div class="v num">96%</div><div class="l">das triagens com a resposta certa (24 casos de teste)</div></div>
+      <div class="stat"><div class="v num">0</div><div class="l">respostas públicas indevidas, inclusive em tentativas de manipular o modelo</div></div>
+      <div class="stat"><div class="v num">30–90 s</div><div class="l">para propor uma resposta, num servidor sem GPU</div></div>
     </div>
+    <p class="note">São testes de laboratório com poucos casos. Servem para mostrar que funciona com segurança, mas não medem ganho real. Esse número vem do piloto.</p>
   </section>
 
   <section>
-    <div class="eyebrow">Perguntas prováveis</div>
-    <h2>Para quando a curiosidade bater</h2>
-    <div>
-      <details id="q-erro"><summary>E se a IA errar?</summary><p>O técnico lê a proposta antes do <code>#ok</code>. Nenhum texto escrito pela IA chega ao usuário sem uma pessoa aprovar.</p></details>
-      <details id="q-nuvem"><summary>Por que não usar uma IA na nuvem?</summary><p>Chamado tem dado pessoal. Rodando local, nada sai da máquina e não há custo por chamado. O modelo é pequeno de propósito: as regras em código compensam o que ele não sabe.</p></details>
-      <details id="q-mcp"><summary>O que é esse MCP?</summary><p>Model Context Protocol, o padrão que as IAs usam para chamar ferramentas. Aqui ele separa quem pensa (o modelo) de quem age (o itos-mcp), cada um com sua credencial.</p></details>
-      <details id="q-escala"><summary>Escala para produção?</summary><p>Hoje é um protótipo no homelab. O desenho permite trocar o modelo e o servidor sem reescrever o fluxo: o n8n só encadeia passos, e as regras ficam num único serviço testado.</p></details>
+    <span class="eyebrow">Próximo passo</span>
+    <h2>Como provar o ganho de verdade: um piloto de 4 semanas</h2>
+    <ol class="steps">
+      <li><b>Linha de base:</b> tirar do GLPI o tempo médio até a primeira resposta e até a solução, e o número de chamados reabertos, das últimas 4 semanas.</li>
+      <li><b>Piloto:</b> ligar o ITOS para um grupo de atendimento, com as mesmas pessoas e o mesmo tipo de chamado.</li>
+      <li><b>Medir:</b> tempo até a primeira resposta e até a solução, quantas propostas saem aprovadas sem <span class="num">#refazer</span>, quantos rascunhos de artigo são aprovados e a satisfação do usuário pela pesquisa do GLPI.</li>
+      <li><b>Ouvir a equipe:</b> fazer uma pesquisa rápida sobre quanto tempo cada tarefa passou a levar, para ajustar a calculadora acima com números reais.</li>
+    </ol>
+  </section>
+
+  <section>
+    <span class="eyebrow">Limites</span>
+    <h2>O que ainda pesa contra</h2>
+    <div class="tablewrap">
+      <table>
+        <tbody>
+          <tr><td><b>Hardware</b></td><td>Sem GPU, a proposta de resposta leva de 30 a 90 segundos. Com GPU, o modelo responde em poucos segundos. O servidor de produção precisa ser dimensionado.</td></tr>
+          <tr><td><b>Modelo pequeno</b></td><td>Às vezes uma frase sai estranha. Por isso o técnico sempre aprova, e o <span class="num">#refazer</span> gera outra versão.</td></tr>
+          <tr><td><b>Processo</b></td><td>As tags (<span class="num">#responder</span>, <span class="num">#ok</span>) são provisórias. A forma final (tag, modelo de acompanhamento ou categoria) a equipe decide.</td></tr>
+          <tr><td><b>Dependência</b></td><td>Se o ITOS estiver fora do ar, o técnico recebe um aviso e responde manualmente, como faz hoje.</td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
-  <footer>ITOS 0.0.02-alpha · GLPI 11.0.10 · n8n 2.43.7 · Ollama 0.40.6 · qwen3:1.7b · Python 3.12 · todos os dados desta página são fictícios.</footer>
+  <footer>ITOS 0.0.02 · demonstração completa em 28/11 · todos os exemplos usam dados fictícios · <a href="guia/" style="color:var(--accent)">como o ITOS funciona por dentro</a></footer>
 </main>
+
+<script>
+(function(){
+  const ids=["n","dias","tec","hora","t1","t2","r2","t3","t4","pa","t5","t6"];
+  const v=id=>{const x=parseFloat(document.getElementById(id).value);return isFinite(x)&&x>0?x:0};
+  const h=x=>x.toLocaleString("pt-BR",{maximumFractionDigits:0})+" h";
+  const brl=x=>x.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
+  function calc(){
+    const n=v("n")*v("dias");
+    const cap=v("tec")*176;
+    const fmt1=x=>x.toLocaleString("pt-BR",{maximumFractionDigits:1});
+    document.getElementById("o-n").textContent=n.toLocaleString("pt-BR",{maximumFractionDigits:0});
+    document.getElementById("o-cap").textContent=(n?fmt1(cap*60/n):"0")+" min";
+    const a=n*v("t1")/60;
+    const b=n*v("t2")*Math.min(v("r2"),100)/100/60;
+    const c=n*Math.max(v("t3")-v("t4"),0)/60;
+    const d=n*Math.min(v("pa"),100)/100*Math.max(v("t5")-v("t6"),0)/60;
+    const tot=a+b+c+d;
+    const set=(id,t)=>document.getElementById(id).textContent=t;
+    set("o1",h(a));set("o2",h(b));set("o3",h(c));set("o4",h(d));
+    set("o-h",h(tot));
+    set("o-fte",fmt1(tot/176));
+    set("o-fte-l","técnicos em tempo integral (176 h/mês)"+(cap?", ou "+fmt1(tot/cap*100)+"% da capacidade da equipe":""));
+    set("o-pc",(n?fmt1(tot*60/n):"0")+" min");
+    set("o-r",brl(tot*v("hora")));set("o-ra",brl(tot*v("hora")*12));
+  }
+  ids.forEach(id=>document.getElementById(id).addEventListener("input",calc));
+  calc();
+})();
+</script>
+
 </body>
 </html>
